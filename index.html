@@ -1,122 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAO Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css"> <!-- Archivo CSS personalizado -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css"> <!-- Archivo CSS personalizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light border-g">
+    <nav class="navbar navbar-expand-lg navbar-light border-g p-4">
         <div class="container d-flex flex-column">
-            <a class="navbar-brand logo-g" href="#">SHAO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="/assets/img/shapes/forma-fondo.png" alt="" style="    position: absolute;">
+            <a class="navbar-brand logo-g pt-0" href="#">GBM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Acerca de mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-me">Acerca de mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero container py-5 border-g">
-        <div class="row g-4">
-            <div class="col-md-3">
-                <div class="p-4 border text-center">
-                    <p>Foto de mí</p>
-                    <button class="btn btn-primary">Más acerca de mí</button>
+    <section class="hero container border-g" style="padding: 67px 60px !important;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="p-0 text-center">
+                    <img src="/assets/img/fotos/Foto1.png" alt="">
+                    <!-- <button class="btn btn-primary">Más acerca de mí</button> -->
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="p-4 border text-center">Texto + imagen</div>
-            </div>
-            <div class="col-md-3">
-                <div class="p-4 border text-center">Hobbies</div>
-            </div>
-            <div class="col-md-3">
-                <div class="p-4 border text-center">Foto de mí</div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-4 border text-center">Foto de mí</div>
+            <div class="col-md-8">
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="p-0 text-center">
+                            <img src="/assets/img/fotos/Foto2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-0 text-center">
+                            <img src="/assets/img/fotos/Foto3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="p-0 text-center">
+                            <img src="/assets/img/fotos/Foto4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="p-0 text-center">
+                            <img src="/assets/img/fotos/Foto5.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Servicios Section -->
-    <section class="services container py-5 border-g">
-        <h2 class="text-center">Servicios</h2>
+    <section class="services container py-5 border-g" id="services">
+        <h2 class="text-center text-uppercase title-custom-02">Servicios</h2>
         <h3 class="text-center">TITLE 01</h3>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="p-4 border text-center">Servicio 1</div>
+                <div class="p-4 border text-center">Landing Page</div>
             </div>
             <div class="col-md-4">
-                <div class="p-4 border text-center">Servicio 2</div>
+                <div class="p-4 border text-center">Ecommerce</div>
             </div>
             <div class="col-md-4">
-                <div class="p-4 border text-center">Servicio 3</div>
+                <div class="p-4 border text-center">Web Design </div>
+                <div class="p-4 border text-center">Redesign Web </div>
             </div>
         </div>
     </section>
 
     <!-- Acerca de mí Section -->
-    <section class="about-me container py-5 border-g">
-        <h2 class="text-center">Acerca de mí</h2>
-        <h3 class="text-center">TITLE 02</h3>
+    <section class="about-me container py-5 border-g" id="about-me">
+
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
+                <h2 class="text-center  text-uppercase title-custom-02">Acerca de mí</h2>
+                <h3 class="text-center">TITLE 02</h3>
                 <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action active">Acerca de mí</button>
-                    <button type="button" class="list-group-item list-group-item-action">Experiencia</button>
-                    <button type="button" class="list-group-item list-group-item-action">Estudios</button>
-                    <button type="button" class="list-group-item list-group-item-action">Habilidades</button>
+                    <button type="button" class="list-group-item list-group-item-action active">Acerca de mí <img
+                            src="./assets/img/mujer (2).png" alt=""></button>
+                    <button type="button" class="list-group-item list-group-item-action"><img
+                            src="./assets/img/maleta.png" alt=""> Experiencia</button>
+                    <button type="button" class="list-group-item list-group-item-action">Estudios<img
+                            src="./assets/img/sombrero-de-graduacion.png" alt=""></button>
+                    <button type="button" class="list-group-item list-group-item-action"><img
+                            src="./assets/img/cerebro.png" alt=""> Habilidades</button>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="p-4 border">
                     <p>Hola,</p>
                     <h3>Soy Gabriela Moron</h3>
-                    <p>Me considero una persona dedicada y comprometida, con muchas ganas de aprender nuevas tecnologías. Me gusta trabajar en equipo y compartir diferentes puntos de vista.</p>
+                    <p>Desarrolladora web con más de 2 años de experiencia en
+                        creación de sitios atractivos y funcionales. Especialista en
+                        WordPress, diseño responsivo y experiencia de usuario, con un
+                        enfoque en soluciones innovadoras para potenciar la presencia
+                        digital de empresas.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contacto Section -->
-    <section class="contact container py-5 border-g">
-        <h2 class="text-center">Contáctame</h2>
+    <section class="contact container py-5 border-g" id="contact">
+        <h2 class="text-center  text-uppercase title-custom-02">Información de Contacto</h2>
         <h3 class="text-center">TITLE 03</h3>
-        <form>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="First Name">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a href="https://www.facebook.com/gabriielamoron" class="icon-container">
+                        <img class="img-redes" src="./assets/img/icons/facebook.svg" alt="Facebook">
+                    </a>
                 </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Last Name">
+                <div class="col-auto">
+                    <a href="https://www.instagram.com/xiangling_45/" class="icon-container">
+                        <img class="img-redes" src="./assets/img/icons/Instaa.svg" alt="Instagram">
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://api.whatsapp.com/send/?phone=59175660196&text&type=phone_number&app_absent=0"
+                        class="icon-container">
+                        <img class="img-redes" src="./assets/img/icons/Wpp.svg" alt="WhatsApp">
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://www.linkedin.com/in/gabriela-moron4537/" class="icon-container">
+                        <img class="img-redes" src="./assets/img/icons/LinkedIn.svg" alt="LinkedIn">
+                    </a>
                 </div>
             </div>
-            <div class="my-3">
-                <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="my-3">
-                <textarea class="form-control" rows="4" placeholder="Cotización para una landing page..."></textarea>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Send Data</button>
-            </div>
-        </form>
+        </div>
+
     </section>
 
     <!-- Footer -->
@@ -128,4 +166,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

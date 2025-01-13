@@ -1,0 +1,90 @@
+/* styles.css */
+
+body {
+    font-family: 'Poppins';
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #FCFCF2;
+    color: #3e4e0e!important;
+}
+.nav-link, .navbar-brand.logo-g{
+    color: #3e4e0e!important;
+
+}
+
+.navbar-brand.logo-g {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.hero,
+.services,
+.about-me,
+.contact {
+    margin-bottom: 0 !important;
+}
+
+.border-g {
+    border: 1px solid #829741;
+}
+
+a.nav-link {
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-weight: 500;
+}
+
+li.nav-item {
+    margin-right: 30px;
+}
+
+.hero,
+.services,
+.about-me,
+.contact {
+    margin-bottom: 2rem;
+}
+
+.border {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.list-group-item.active {
+    background-color: #063F8D;
+    border-color: #063F8D;
+}
+
+.btn-primary {
+    background-color: #DC1C2E;
+    border-color: #DC1C2E;
+}
+
+.footer {
+    font-size: 0.875rem;
+}
+
+.title-custom-02{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.list-group-item.active {
+    background-color: #000000!important;
+    border-color: #000000!important;
+}
+
+/* section.hero::after {
+    content: url(/assets/img/Graphic-Elements.png);
+    position: absolute;
+    bottom: 32.8%;
+    right: 15%;
+}
+
+section.hero::before {
+    content: url(/assets/img/Graphic-Elements2.png);
+    position: absolute;
+    bottom: 32.8%;
+    right: 12%;
+} */
