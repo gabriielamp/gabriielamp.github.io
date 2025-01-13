@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script type="text/javascript" src="./assets/js/script.js" ></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
 </head>
 
 <body>
@@ -21,14 +21,14 @@
     <nav class="navbar navbar-expand-lg navbar-light border-g p-4 container">
         <div class="container d-flex flex-column">
             <img src="/assets/img/shapes/forma-fondo.png" alt="" style="    position: absolute;">
-            <a class="navbar-brand logo-g pt-0" href="#">GBM</a>
+            <a class="navbar-brand logo-g pt-0" href="#">SHAO</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about-me">Acerca de mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
@@ -38,7 +38,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero container border-g" style="padding: 67px 60px !important;">
+    <section class="hero container border-g" id="hero" style="padding: 67px 60px !important;">
         <div class="row">
             <div class="col-md-4">
                 <div class="p-0 text-center">
@@ -80,30 +80,60 @@
     <section class="services container py-5 border-g" id="services" style="padding: 67px 60px !important;">
         <h2 class="text-center text-uppercase title-custom-02">Servicios</h2>
         <h3 class="text-center ml3">Creatividad para tu Marca</h3>
-
+    
         <div class="row g-4">
+            <!-- Landing Page -->
             <div class="col-md-4">
                 <div class="p-4 border text-center">
-                    <h5 class="font-weight-700">Landing Page</h5>
+                    <h5 class="font-weight-600 mb-3">Landing Page</h5>
+                    <img class="mb-3 img-fluid" src="/assets/img/mockups/LandingPage.png" alt="Landing Page Mockup">
+                    <ul class="text-start">
+                        <li><span>Diseño atractivo y enfocado en conversiones</span></li>
+                        <li><span>Optimización para campañas publicitarias</span></li>
+                        <li><span>Formulario de contacto o suscripción</span></li>
+                        <li><span>Dominio «.com» incluido (1 año)</span></li>
+                        <li><span>Certificado SSL para mayor seguridad</span></li>
+                    </ul>
                 </div>
             </div>
+    
+            <!-- E-commerce -->
             <div class="col-md-4">
                 <div class="p-4 border text-center">
-                    <h5 class="font-weight-700">E-commerce</h5>
-
+                    <h5 class="font-weight-600 mb-3">E-commerce</h5>
+                    <img class="mb-3 img-fluid" src="/assets/img/mockups/Ecommerce.png" alt="E-commerce Mockup">
+                    <ul class="text-start">
+                        <li><span>Plataforma para ventas en línea</span></li>
+                        <li><span>Integración de métodos de pago (PayPal, Stripe, etc.)</span></li>
+                        <li><span>Gestión de productos y stock</span></li>
+                        <li><span>Diseño responsive y optimizado</span></li>
+                        <li><span>Dominio «.com» y hosting profesional (1 año)</span></li>
+                    </ul>
                 </div>
             </div>
+    
+            <!-- Web Design -->
             <div class="col-md-4">
                 <div class="p-4 border text-center">
-                    <h5 class="font-weight-700">Web Design</h5>
-
+                    <h5 class="font-weight-600 mb-3">Web Design</h5>
+                    <img class="mb-3 img-fluid" src="/assets/img/mockups/MarketPlace.png" alt="Web Design Mockup">
+                    <ul class="text-start">
+                        <li><span>Diseño personalizado según tu marca</span></li>
+                        <li><span>Compatible con todos los dispositivos</span></li>
+                        <li><span>Optimización para motores de búsqueda (SEO)</span></li>
+                        <li><span>Velocidad y rendimiento mejorados</span></li>
+                        <li><span>Actualizaciones y soporte técnico</span></li>
+                    </ul>
                 </div>
-                <div class="p-4 border text-center">
-                    <h5 class="font-weight-700">Redesign Web</h5>
-                </div>
+            </div>
+    
+            <!-- Botón Cotizar -->
+            <div class="col text-center">
+                <button class="btn btn-success">Cotizar mi web</button>
             </div>
         </div>
     </section>
+    
 
     <!-- Acerca de mí Section -->
     <section class="about-me container py-5 border-g" id="about-me" style="padding: 67px 60px !important;">
@@ -172,7 +202,7 @@
     <!-- Footer -->
     <footer class="footer py-4 border-g container">
         <div class="text-center">
-            <p class="m-0 p-0">&copy;2024 Derechos reservados SHAO Devs | Diseño y Desarrollo por <a
+            <p class="m-0 p-0">&copy;2024 Derechos reservados SHAO Devs | Diseño y Desarrollo por <a class="text-decoration-none"
                     href="https://www.linkedin.com/in/gabriela-moron4537/">Gabriela Moron</a></p>
         </div>
     </footer>

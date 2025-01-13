@@ -12,7 +12,7 @@ textWrappers.forEach(function (textWrapper) {
             targets: textWrapper.querySelectorAll('.letter'),
             opacity: [0, 1],
             easing: "easeInOutQuad",
-            duration: 2250,
+            duration: 800,
             delay: (el, i) => 150 * (i + 1)
         })
         .add({
