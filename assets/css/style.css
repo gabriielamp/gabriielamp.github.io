@@ -1,9 +1,9 @@
 /* styles.css */
 :root {
     --verde-claro: #a5c300;
-    --verde-borde:#829741;
-    --verde-accordion:#5E6827;
-    --verde-oscuro:#3e4e0e;
+    --verde-borde: #829741;
+    --verde-accordion: #5E6827;
+    --verde-oscuro: #3e4e0e;
 }
 
 body {
@@ -27,28 +27,36 @@ body {
 
 /* Efecto Hover para los enlaces del navbar */
 .navbar-nav .nav-link {
-    color: var(--verde-oscuro);; /* Color inicial del texto */
-    transition: all 0.3s ease; /* Transición suave */
+    color: var(--verde-oscuro);
+    ;
+    /* Color inicial del texto */
+    transition: all 0.3s ease;
+    /* Transición suave */
     position: relative;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--verde-claro); /* Cambia el color del texto al hacer hover */
+    color: var(--verde-claro);
+    /* Cambia el color del texto al hacer hover */
 }
 
 .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px; /* Línea justo debajo del texto */
+    bottom: -2px;
+    /* Línea justo debajo del texto */
     width: 0;
     height: 2px;
-    background-color: var(--verde-claro); /* Color de la línea */
-    transition: width 0.3s ease; /* Transición suave para la línea */
+    background-color: var(--verde-claro);
+    /* Color de la línea */
+    transition: width 0.3s ease;
+    /* Transición suave para la línea */
 }
 
 .navbar-nav .nav-link:hover::after {
-    width: 100%; /* La línea se extiende completamente al hacer hover */
+    width: 100%;
+    /* La línea se extiende completamente al hacer hover */
 }
 
 
@@ -106,7 +114,7 @@ li.nav-item {
 h3.text-center {
     position: relative;
     z-index: 1;
-    margin-bottom: 45px;
+    margin-bottom: 55px;
     font-weight: 800;
 }
 
@@ -119,17 +127,106 @@ h3.text-center {
     font-size: 35px;
 }
 
-/* h3.text-center::before {
-    content: "";
+.hero {
+    position: relative;
+    /* Necesario para posicionar elementos internos de forma absoluta */
+}
+
+.btn-custom{
+        padding: 10px 30px;
+        border-radius: 30px;
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        background-color: var(--verde-claro);
+}
+.btn-custom:hover{
+    color: var(--verde-claro);
+    background-color: white;
+    border:1px solid var(--verde-claro);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clases generales para las imágenes */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    /* Duración y suavidad de la animación */
+}
+
+/* Retrasos para cada imagen según el orden */
+.img-1 {
+    animation-delay: 0.2s;
+}
+
+.img-2 {
+    animation-delay: 0.4s;
+}
+
+.img-3 {
+    animation-delay: 0.6s;
+}
+
+.img-4 {
+    animation-delay: 0.8s;
+}
+
+.img-5 {
+    animation-delay: 1s;
+}
+
+.sparkle {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url(https://gabriielamp.github.io/assets/img/shapes/forma-fondo.png) no-repeat center center;
-    background-size: cover;
-    width: 200px;
-    height: 100%;
-    display: block!important;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    animation: twinkle 2s infinite;
     z-index: 1;
-    opacity: 0.9;
-} */
+    /* Para que no queden detrás de otros elementos */
+}
+
+.sparkle-1 {
+    top: 4%;
+    left: 3%;
+}
+
+.sparkle-2 {
+    top: 40%;
+    right: 1%;
+}
+
+.sparkle-3 {
+    bottom: 3%;
+    left: 20%;
+}
+
+.sparkle-4 {
+    top: 4%;
+    right: 23%;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.2);
+    }
+}
