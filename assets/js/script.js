@@ -18,9 +18,9 @@ textWrappers.forEach(function (textWrapper) {
         .add({
             targets: textWrapper,
             opacity: 0,
-            duration: 1000,
+            duration: 900,
             easing: "easeOutExpo",
-            delay: 1000
+            delay: 900
         });
 });
 
