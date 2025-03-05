@@ -145,8 +145,8 @@ h3.text-center {
     border: 1px solid var(--verde-claro);
 }
 
-.border-custom{
-    border-color: var(--verde-borde)!important;
+.border-custom {
+    border-color: var(--verde-borde) !important;
 }
 
 
@@ -159,7 +159,10 @@ div#nav-tabContent {
     background: white;
     padding: 20px 25px;
     border-radius: 20px;
-    border: 1px solid  var(--verde-borde);
+    border: 1px solid var(--verde-borde);
+
+/*     height: 700px;
+    overflow: scroll; */
 }
 
 .resume-item {
@@ -181,23 +184,64 @@ div#nav-tabContent {
     width: 16px;
 }
 
-.resume-title{
+.resume-title {
     font-weight: 700;
     font-size: 20px;
 }
 
-.resume-date{
+.resume-date {
     background: #d4f51c85;
     padding: 4px 10px;
     width: fit-content;
     border-radius: 15px;
 }
 
-.resume-title-02{
+.resume-title-02 {
     font-size: 18px;
+    font-weight: 700;
 }
 
-div#list-tab a{
+
+/* Estilo del contenedor con scroll */
+.experience-container {
+    height: 400px; /* Ajusta la altura según tu diseño */
+    overflow-y: auto;
+    padding-right: 10px; /* Evita que el contenido se oculte bajo la barra de scroll */
+    scrollbar-width: thin;
+    scrollbar-color: #063F8D #f1f1f1; /* Colores del scroll en Firefox */
+}
+
+/* Estilo para la barra de desplazamiento en Chrome, Edge y Safari */
+.experience-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.experience-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.experience-container::-webkit-scrollbar-thumb {
+    background-color: #063F8D;
+    border-radius: 10px;
+}
+
+/* Mejora la apariencia de los elementos dentro del contenedor */
+
+
+ul {
+    padding-left: 35px;
+    margin-bottom: 10px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+
+
+
+div#list-tab a {
     font-size: 18px;
     text-align: center;
     margin-bottom: 15px;
@@ -231,6 +275,10 @@ div#list-tab a{
     height: 30px;
 }
 
+.img-icon {
+    margin-left: 30px;
+    width: 46px;
+}
 
 /* Animación de aparición */
 @keyframes fadeIn {
@@ -315,4 +363,141 @@ div#list-tab a{
         opacity: 0.4;
         transform: scale(1.2);
     }
+}
+
+/* Mejora en el espaciado y apariencia del slider */
+.portfolio-section {
+    padding: 80px 20px;
+}
+
+/* Asegúrate de que el contenedor del slider tenga un tamaño específico */
+.swiper-container {
+    width: 100%;
+   /*  max-width: 600px; */ /* Ajusta el ancho según lo necesario */
+    height: 480px; /* Establece una altura específica */
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Estilos para las imágenes del slider */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    object-fit: contain;
+    border-radius: 8px;
+   /*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Ajuste de los botones de navegación */
+.swiper-button-next, .swiper-button-prev {
+    color: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Asegura que las flechas estén encima del contenido */
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+/* Estilo de la paginación */
+.swiper-pagination {
+    bottom: 15px !important;
+    z-index: 10;
+}
+
+.swiper-pagination-bullet {
+    background-color: #000;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #dc1c2e; /* Usa un color destacado para la bala activa */
+}
+ .img-redes{
+    width: 36px;
+    height: auto;
+    z-index: 1;
+ }
+
+ .dos{
+    width: 30px!important;
+ }
+
+ /* Estilo general para los contenedores de íconos */
+.icon-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+
+
+/* Agregar el SVG con ::after */
+.icon-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 60px; /* Ajusta el tamaño del SVG */
+    height: 60px;
+    background-image: url('/assets/img/icons/elipse.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: transform 2.5s ease;
+    opacity: 0.8;
+}
+
+/* Efecto hover para hacer girar el SVG */
+.icon-container:hover::after {
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.fade-in {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    height: 100%; /* Asegura el uso completo del contenedor */
+}
+
+.frase {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+}
+.skill-title{
+    font-size: 18px;
+    font-weight: 600;
+}
+section#portfolio .swiper-button-prev:after {
+    content: '' !important;
+    background-image: url('/assets/img/icons/flecha-izq.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    transform: translateX(7px);
+}
+section#portfolio .swiper-button-next:after {
+    content: '' !important;
+    background-image: url('/assets/img/icons/flecha-der.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    transform: translateX(7px);
+}
+.swiper-pagination-bullet-active{
+    background: #A1BE00 !important;
 }

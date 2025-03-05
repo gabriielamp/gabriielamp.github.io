@@ -14,6 +14,13 @@
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -40,8 +47,7 @@
     </nav>
 
     <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/59175660196?text=¡Hola!%20Quisiera%20más%20información" target="_blank"
-        class="whatsapp-btn">
+    <a href="https://wa.me/59175660196?text=¡Hola!%20Quisiera%20más%20información" target="_blank" class="whatsapp-btn">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
@@ -64,9 +70,7 @@
                     <div class="col-md-8">
                         <div class="p-0 text-center d-flex align-items-center fade-in img-2"
                             style="width:466px ; height: 187px; background-color: white; border: 1px solid black; border-radius: 30px;">
-                            <p class="m-0" style=" font-size: 24px; text-align: center;">"Lorem ipsum dolor sit amet
-                                consectetur adipiscing elit
-                                conubia ad, fermentum laoreet".</p>
+                            <p class="m-0 frase p-2" style=" font-size: 20px; text-align: center;"></p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -91,64 +95,6 @@
         </div>
     </section>
 
-    <!-- Servicios Section -->
-    <section class="services container py-5 border-g" id="services" style="padding: 67px 60px !important;">
-        <h2 class="text-center text-uppercase title-custom-02">Servicios</h2>
-        <h3 class="text-center ml3">Creatividad para tu Marca</h3>
-
-        <div class="row g-4">
-            <!-- Landing Page -->
-            <div class="col-md-4">
-                <div class="p-4 border text-center border-custom">
-                    <h5 class="font-weight-600 mb-3">Landing Page</h5>
-                    <img class="mb-3 img-fluid" src="/assets/img/mockups/LandingPage.png" alt="Landing Page Mockup">
-                    <ul class="text-start">
-                        <li><span>Diseño atractivo y enfocado en conversiones</span></li>
-                        <li><span>Optimización para campañas publicitarias</span></li>
-                        <li><span>Formulario de contacto o suscripción</span></li>
-                        <li><span>Dominio «.com» incluido (1 año)</span></li>
-                        <li><span>Certificado SSL para mayor seguridad</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- E-commerce -->
-            <div class="col-md-4">
-                <div class="p-4 border text-center border-custom">
-                    <h5 class="font-weight-600 mb-3">E-commerce</h5>
-                    <img class="mb-3 img-fluid" src="/assets/img/mockups/Ecommerce.png" alt="E-commerce Mockup">
-                    <ul class="text-start">
-                        <li><span>Plataforma para ventas en línea</span></li>
-                        <li><span>Integración de métodos de pago (PayPal, Stripe, etc.)</span></li>
-                        <li><span>Gestión de productos y stock</span></li>
-                        <li><span>Diseño responsive y optimizado</span></li>
-                        <li><span>Dominio «.com» y hosting profesional (1 año)</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Web Design -->
-            <div class="col-md-4">
-                <div class="p-4 border text-center border-custom">
-                    <h5 class="font-weight-600 mb-3">Web Design</h5>
-                    <img class="mb-3 img-fluid" src="/assets/img/mockups/MarketPlace.png" alt="Web Design Mockup">
-                    <ul class="text-start">
-                        <li><span>Diseño personalizado según tu marca</span></li>
-                        <li><span>Compatible con todos los dispositivos</span></li>
-                        <li><span>Optimización para motores de búsqueda (SEO)</span></li>
-                        <li><span>Velocidad y rendimiento mejorados</span></li>
-                        <li><span>Actualizaciones y soporte técnico</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Botón Cotizar -->
-            <div class="col text-center">
-                <a href="http://" class="btn btn-custom">Cotizar Mi Web</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Acerca de mí Section -->
     <section class="about-me container py-5 border-g" id="about-me" style="padding: 67px 60px !important;">
         <div class="row">
@@ -157,34 +103,50 @@
                 <h3 class="text-center">Pasión por el Diseño y Desarrollo</h3>
                 <div class="list-group" id="list-tab" role="tablist">
                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list"
-                        href="#list-home" role="tab" aria-controls="home">
-                        Acerca de mí <img src="./assets/img/icons/mujer (2).png" alt=""
-                            style="    margin-left: 30px;"></a>
+                        href="#list-home" role="tab" aria-controls="home"
+                        onclick="changeImage(this, 'mujer-active.png', 'mujer-normal.png')">
+                        Acerca de mí
+                        <img class="img-icon" src="./assets/img/icons/mujer-active.png" alt="">
+                    </a>
+
                     <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list"
-                        href="#list-profile" role="tab" aria-controls="profile">
-                        Experiencia <img src="./assets/img/icons/maleta.png" alt="" style="    margin-left: 30px;"></a>
+                        href="#list-profile" role="tab" aria-controls="profile"
+                        onclick="changeImage(this, 'maleta-active.svg', 'maleta.svg')">
+                        Experiencia
+                        <img class="img-icon" src="./assets/img/icons/maleta.svg" alt="">
+                    </a>
+
                     <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"
-                        href="#list-messages" role="tab" aria-controls="messages">
-                        Estudios <img src="./assets/img/icons/sombrero-de-graduacion.png" alt=""
-                            style="    margin-left: 30px;"></a>
+                        href="#list-messages" role="tab" aria-controls="messages"
+                        onclick="changeImage(this, 'gorro-active.svg', 'gorro-de-graduacion.svg')">
+                        Estudios
+                        <img class="img-icon" src="./assets/img/icons/gorro-de-graduacion.svg" alt="">
+                    </a>
+
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list"
-                        href="#list-settings" role="tab" aria-controls="settings">
-                        Habilidades <img src="./assets/img/icons/cerebro.png" alt="" style="    margin-left: 30px;"></a>
+                        href="#list-settings" role="tab" aria-controls="settings"
+                        onclick="changeImage(this, 'cerebro-active.svg', 'cerebro.svg')">
+                        Habilidades
+                        <img class="img-icon" src="./assets/img/icons/cerebro.svg" alt="">
+                    </a>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 d-flex align-items-center">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel"
                         aria-labelledby="list-home-list">
-                        <p>Hola,</p>
-                        <h3>Soy Gabriela Moron</h3>
-                        <p>Desarrolladora web con más de 2 años de experiencia en
-                            creación de sitios atractivos y funcionales. Especialista en
-                            WordPress, diseño responsivo y experiencia de usuario, con un
-                            enfoque en soluciones innovadoras para potenciar la presencia
-                            digital de empresas.</p>
+                        <p>👋 ¡Hola!</p>
+                        <h3> Soy Gabriela Pereira ✨</h3><br>
+                        <p>💻 Desarrolladora web con más de 2 años de experiencia en creación de sitios atractivos y
+                            funcionales. <br><br> Especialista en <strong>WordPress</strong>, diseño responsivo y
+                            experiencia de
+                            usuario, con un enfoque en soluciones innovadoras para potenciar la presencia digital de
+                            empresas. 🚀</p>
+                        <p>🎨 Apasionada por el arte en todas sus formas, encuentro inspiración en la creatividad y el
+                            diseño.</p>
+                        <p>☕ Amante del café, siempre acompañado de buenas ideas y código bien estructurado. 👩‍💻</p>
                     </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <!-- <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                         <div class="resume-item">
                             <h4 class="resume-title">RIA Ventures, Empresa de Soluciones Tecnológicas</h4>
                             <h5 class="resume-title-02">Desarrollador Front-end</h5>
@@ -210,6 +172,52 @@
                                     clientes vender productos en línea.</li>
                             </ul>
                         </div>
+                    </div> -->
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                        <!-- RIA Ventures -->
+                        <div class="resume-item">
+                            <h4 class="resume-title">RIA Ventures</h4>
+                            <p class="resume-location"><em>Santa Cruz, Bolivia · Presencial</em></p>
+                            <h5 class="resume-title-02">Desarrollador de Front-end</h5>
+                            <p class="resume-date"><em>abril 2024 - Actualidad · 1 año</em></p>
+                            <ul>
+                                <li>Desarrollo de interfaces de usuario dinámicas y responsivas utilizando WordPress y
+                                    herramientas front-end.</li>
+                                <li>Participación activa en proyectos con tecnologías como WordPress, Diseño web y 4
+                                    aptitudes más.</li>
+                            </ul>
+                            <h5 class="resume-title-02">Pasante en Desarrollo Web</h5>
+                            <p class="resume-date"><em>noviembre 2023 - marzo 2024 · 5 meses</em></p>
+                            <ul>
+                                <li>Apoyo en el diseño y desarrollo de sitios web, adquiriendo experiencia en WordPress
+                                    y diseño web.</li>
+                                <li>Colaboración en proyectos prácticos bajo la supervisión de desarrolladores senior.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Foco Azul -->
+                        <div class="resume-item">
+                            <h4 class="resume-title">Foco Azul</h4>
+                            <p class="resume-location"><em>Santa Cruz, Bolivia · Híbrido</em></p>
+                            <h5 class="resume-title-02">Desarrollador Web</h5>
+                            <p class="resume-date"><em>diciembre 2021 - junio 2022 · 7 meses</em></p>
+                            <p class="resume-location"><em>Edificio Mejía – B6, próximo 5to anillo y Av. Pirai</em></p>
+                            <ul>
+                                <li>Diseño, desarrollo y mantenimiento de sitios web utilizando CSS, PHP y tecnologías
+                                    front-end.</li>
+                                <li>Implementación de soluciones web interactivas para mejorar la experiencia del
+                                    usuario.</li>
+                            </ul>
+                            <h5 class="resume-title-02">Pasante en Desarrollo Web</h5>
+                            <p class="resume-date"><em>agosto 2021 - noviembre 2021 · 4 meses</em></p>
+                            <ul>
+                                <li>Apoyo en proyectos de diseño web, aprendiendo sobre WordPress y mejores prácticas de
+                                    desarrollo.</li>
+                                <li>Desarrollo de funcionalidades básicas bajo la guía de desarrolladores
+                                    experimentados.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                         <div class="resume-item">
@@ -225,7 +233,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                        <!-- <h3>Tecnologias</h3> -->
+                        <h4 class="mb-3  skill-title">Lenguajes de Marcado y Estilos :</h4>
                         <div class="row text-center">
                             <!-- HTML -->
                             <div class="col-6 col-md-3 tech-icon">
@@ -237,6 +245,9 @@
                                 <img src="./assets/img/skills/css-logo.png" width="50px" alt="CSS">
                                 <div class="tech-name">CSS</div>
                             </div>
+                        </div>
+                        <h4 class="mb-3 mt-4 skill-title">Lenguajes de Programación :</h4>
+                        <div class="row text-center">
                             <!-- JavaScript -->
                             <div class="col-6 col-md-3 tech-icon">
                                 <img src="./assets/img/skills/js-logo.png" width="50px" alt="JavaScript">
@@ -252,65 +263,76 @@
                                 <img src="./assets/img/skills/csharp-logo.png" width="50px" alt="C#">
                                 <div class="tech-name">C#</div>
                             </div>
-                            <!-- WordPress -->
+                        </div>
+                        <h4 class="mb-3 mt-4 skill-title">Frameworks y Librerías :</h4>
+                        <div class="row text-center">
+                            <!-- React -->
                             <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/wordpress-logo.png" width="100px" alt="WordPress">
-                                <div class="tech-name">WordPress</div>
+                                <img src="./assets/img/skills/react-logo.png" width="50px" alt="React">
+                                <div class="tech-name">React</div>
                             </div>
                             <!-- CodeIgniter -->
                             <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/codeigniter-logo.png" width="50px" alt="Laravel">
+                                <img src="./assets/img/skills/codeigniter-logo.png" width="50px" alt="CodeIgniter">
                                 <div class="tech-name">CodeIgniter</div>
-                            </div>
-                            <!-- React -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/react-logo.png" width="50px" alt="Flutter">
-                                <div class="tech-name">React</div>
                             </div>
                             <!-- Bootstrap -->
                             <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/boostrap-logo.png" width="50px" alt="Flutter">
+                                <img src="./assets/img/skills/boostrap-logo.png" width="50px" alt="Bootstrap">
                                 <div class="tech-name">Bootstrap</div>
-                            </div>
-                            <!-- GitHub -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/github-logo.png" width="50px" alt="Flutter">
-                                <div class="tech-name">GitHub</div>
-                            </div>
-                            <!-- Figma -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/figma-logo.png" width="100px" alt="Flutter">
-                                <div class="tech-name">Figma</div>
-                            </div>
-                            <!-- Adobe XD -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/adobexd-logo.svg" width="50px" alt="Flutter">
-                                <div class="tech-name">Adobe XD</div>
-                            </div>
-                            <!-- Adobe XD -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/adobe-photoshop-logo.svg" width="50px" alt="Flutter">
-                                <div class="tech-name">Adobe Photoshop</div>
-                            </div>
-                            <!-- Adobe XD -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/illustrator-logo.svg" width="50px" alt="Flutter">
-                                <div class="tech-name">Adobe Illustrador</div>
-                            </div>
-                            <!-- Adobe XD -->
-                            <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/adobe-premiere-logo.svg" width="50px" alt="Flutter">
-                                <div class="tech-name">Adobe Premiere</div>
                             </div>
                             <!-- Tailwind -->
                             <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/tailwind-logo.png" width="50px" alt="Flutter">
+                                <img src="./assets/img/skills/tailwind-logo.png" width="50px" alt="Tailwind">
                                 <div class="tech-name">Tailwind</div>
+                            </div>
+                        </div>
+                        <h4 class="mb-3 mt-4 skill-title">CMS y Herramientas de Desarrollo :</h4>
+                        <div class="row text-center">
+                            <!-- WordPress -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/wordpress-logo.png" width="100px" alt="WordPress">
+                            </div>
+                            <!-- GitHub -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/github-logo.png" width="50px" alt="GitHub">
+                                <div class="tech-name">GitHub</div>
                             </div>
                             <!-- PhpMyAdmin -->
                             <div class="col-6 col-md-3 tech-icon">
-                                <img src="./assets/img/skills/phpmyadmin-logo.png" width="50px" alt="Flutter">
+                                <img src="./assets/img/skills/phpmyadmin-logo.png" width="50px" alt="PhpMyAdmin">
                                 <div class="tech-name">PhpMyAdmin</div>
+                            </div>
+                        </div>
+                        <h4 class="mb-3 mt-4 skill-title">Diseño y Edición :</h4>
+                        <div class="row text-center">
+                            <!-- Figma -->
+                            <!-- <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/figma-logo.png" width="100px" alt="Figma">
+                                <div class="tech-name">Figma</div>
+                            </div> -->
+                            <!-- Adobe XD -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/adobexd-logo.svg" width="50px" alt="Adobe XD">
+                                <div class="tech-name">Adobe XD</div>
+                            </div>
+                            <!-- Adobe Photoshop -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/adobe-photoshop-logo.svg" width="50px"
+                                    alt="Adobe Photoshop">
+                                <div class="tech-name">Adobe Photoshop</div>
+                            </div>
+                            <!-- Adobe Illustrator -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/illustrator-logo.svg" width="80px"
+                                    alt="Adobe Illustrator">
+                                <div class="tech-name">Adobe Illustrator</div>
+                            </div>
+                            <!-- Adobe Premiere -->
+                            <div class="col-6 col-md-3 tech-icon">
+                                <img src="./assets/img/skills/adobe-premiere-logo.svg" width="50px"
+                                    alt="Adobe Premiere">
+                                <div class="tech-name">Adobe Premiere</div>
                             </div>
                         </div>
                     </div>
@@ -320,22 +342,77 @@
     </section>
 
     <!-- Portfolio -->
-    <section class="services container py-5 border-g d-none" id="portfolio" style="padding: 67px 60px !important;">
+    <section class="portfolio-section container py-5 border-g" id="portfolio">
+        <h2 class="text-center text-uppercase title-custom-02 mb-3">Portfolio</h2>
+        <h3 class="text-center mb-2 text-uppercase">Algunos de mis trabajos</h3>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="https://dribbble.com/shots/22606063-Tu-Proveedor-MarketPlace-for-farmers"
+                                target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/img/mockups/TuProveedor.png" alt="TuProveedor">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://dribbble.com/shots/22606144-Ecommerce-Dzine" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="./assets/img/mockups/Dzine.png" alt="Dzine">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://stayhostscz.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="./assets/img/mockups/StayHost.png" alt="StayHost">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Paginación -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- Botones de navegación -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Servicios Section -->
+    <section class="services container py-5 border-g" id="services" style="padding: 67px 60px !important;">
         <h2 class="text-center text-uppercase title-custom-02">Servicios</h2>
-        <h3 class="text-center ml3">Creatividad para tu Marca</h3>
+        <h3 class="text-center ml3">Soluciones para tu Marca</h3>
 
         <div class="row g-4">
+            <!-- Web Design -->
+            <div class="col-md-4">
+                <div class="p-4 border text-center border-custom">
+                    <h5 class="font-weight-600 mb-3">Web Design</h5>
+                    <img class="mb-3 img-fluid" src="/assets/img/mockups/MarketPlace.png" alt="Web Design Mockup">
+                    <ul class="text-start">
+                        <li><span>Diseño personalizado según tu marca.</span></li>
+                        <li><span>Compatible con todos los dispositivos.</span></li>
+                        <li><span>Optimización para motores de búsqueda (SEO).</span></li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Landing Page -->
             <div class="col-md-4">
                 <div class="p-4 border text-center border-custom">
                     <h5 class="font-weight-600 mb-3">Landing Page</h5>
                     <img class="mb-3 img-fluid" src="/assets/img/mockups/LandingPage.png" alt="Landing Page Mockup">
                     <ul class="text-start">
-                        <li><span>Diseño atractivo y enfocado en conversiones</span></li>
-                        <li><span>Optimización para campañas publicitarias</span></li>
-                        <li><span>Formulario de contacto o suscripción</span></li>
-                        <li><span>Dominio «.com» incluido (1 año)</span></li>
-                        <li><span>Certificado SSL para mayor seguridad</span></li>
+                        <li><span>Desarrollo enfocado en la identidad de la marca.</span></li>
+                        <li><span>Diseño responsive y optimizado</span></li>
+                        <li><span>Optimización para campañas publicitarias.</span></li>
+                        <li><span>Formulario de contacto o suscripción.</span></li>
+                        <li><span>Dominio «.com» incluido (1 año).</span></li>
+                        <li><span>Certificado SSL para mayor seguridad.</span></li>
                     </ul>
                 </div>
             </div>
@@ -350,25 +427,13 @@
                         <li><span>Integración de métodos de pago (PayPal, Stripe, etc.)</span></li>
                         <li><span>Gestión de productos y stock</span></li>
                         <li><span>Diseño responsive y optimizado</span></li>
-                        <li><span>Dominio «.com» y hosting profesional (1 año)</span></li>
+                        <li><span>Dominio «.com» incluido (1 año).</span></li>
+                        <li><span>Certificado SSL para mayor seguridad.</span></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Web Design -->
-            <div class="col-md-4">
-                <div class="p-4 border text-center border-custom">
-                    <h5 class="font-weight-600 mb-3">Web Design</h5>
-                    <img class="mb-3 img-fluid" src="/assets/img/mockups/MarketPlace.png" alt="Web Design Mockup">
-                    <ul class="text-start">
-                        <li><span>Diseño personalizado según tu marca</span></li>
-                        <li><span>Compatible con todos los dispositivos</span></li>
-                        <li><span>Optimización para motores de búsqueda (SEO)</span></li>
-                        <li><span>Velocidad y rendimiento mejorados</span></li>
-                        <li><span>Actualizaciones y soporte técnico</span></li>
-                    </ul>
-                </div>
-            </div>
+
 
             <!-- Botón Cotizar -->
             <div class="col text-center">
@@ -384,24 +449,24 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://www.facebook.com/gabriielamoron" class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/facebook.svg" alt="Facebook">
+                    <a href="mailto:gabriielamoron2@gmail.com" class="icon-container">
+                        <img class="img-redes" src="./assets/img/icons/mails.svg" alt="LinkedIn">
                     </a>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto d-flex align-items-center">
                     <a href="https://www.instagram.com/xiangling_45/" class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/Instaa.svg" alt="Instagram">
+                        <img class="img-redes dos" src="./assets/img/icons/ig.svg" alt="Instagram">
                     </a>
                 </div>
-                <div class="col-auto">
+                <!-- <div class="col-auto d-flex align-items-center">
                     <a href="https://api.whatsapp.com/send/?phone=59175660196&text&type=phone_number&app_absent=0"
                         class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/Wpp.svg" alt="WhatsApp">
+                        <img class="img-redes dos" src="./assets/img/icons/Wpp.svg" alt="WhatsApp">
                     </a>
-                </div>
+                </div> -->
                 <div class="col-auto">
                     <a href="https://www.linkedin.com/in/gabriela-moron4537/" class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/LinkedIn.svg" alt="LinkedIn">
+                        <img class="img-redes" src="./assets/img/icons/link.svg" alt="LinkedIn">
                     </a>
                 </div>
             </div>
