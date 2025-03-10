@@ -1,5 +1,5 @@
 // Selecciona todos los elementos con la clase 'ml3'
-var textWrappers = document.querySelectorAll('.ml3');
+/* var textWrappers = document.querySelectorAll('.ml3');
 
 // Itera sobre cada elemento y aplica las animaciones
 textWrappers.forEach(function (textWrapper) {
@@ -22,7 +22,7 @@ textWrappers.forEach(function (textWrapper) {
             easing: "easeOutExpo",
             delay: 900
         });
-});
+}); */
 
 
 document.addEventListener('DOMContentLoaded', function () {

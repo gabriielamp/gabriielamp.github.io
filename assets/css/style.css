@@ -98,7 +98,7 @@ li.nav-item {
 }
 
 .title-custom-02 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--verde-claro);
     letter-spacing: 1.8px;
@@ -114,6 +114,10 @@ h3.text-center {
     z-index: 1;
     margin-bottom: 55px;
     font-weight: 800;
+
+    /* new */
+    font-size: 25px;
+    text-transform: uppercase;
 }
 
 .font-weight-600 {
@@ -239,8 +243,6 @@ ul li {
 }
 
 
-
-
 div#list-tab a {
     font-size: 18px;
     text-align: center;
@@ -252,7 +254,7 @@ div#list-tab a {
 .whatsapp-btn {
     position: fixed;
     bottom: 20px;
-    right: 15%;
+    right: 5%;
     z-index: 1000;
     width: 60px;
     height: 60px;

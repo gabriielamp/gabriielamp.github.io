@@ -116,12 +116,12 @@
                         <img class="img-icon" src="./assets/img/icons/maleta.svg" alt="">
                     </a>
 
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"
+                   <!--  <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"
                         href="#list-messages" role="tab" aria-controls="messages"
                         onclick="changeImage(this, 'gorro-active.svg', 'gorro-de-graduacion.svg')">
                         Estudios
                         <img class="img-icon" src="./assets/img/icons/gorro-de-graduacion.svg" alt="">
-                    </a>
+                    </a> -->
 
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list"
                         href="#list-settings" role="tab" aria-controls="settings"
@@ -219,7 +219,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    <!-- <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                         <div class="resume-item">
                             <h4 class="resume-title">Universidad Aquino de Bolivia</h4>
                             <h5 class="resume-title-02">Estudiante de la carrera de ingenieria de sistemas</h5>
@@ -231,7 +231,7 @@
                             <h5 class="resume-title-02">Nivel Secundario</h5>
                             <p class="resume-date"><em>2012-2017</em></p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
                         <h4 class="mb-3  skill-title">Lenguajes de Marcado y Estilos :</h4>
                         <div class="row text-center">
@@ -385,7 +385,7 @@
     <!-- Servicios Section -->
     <section class="services container py-5 border-g" id="services" style="padding: 67px 60px !important;">
         <h2 class="text-center text-uppercase title-custom-02">Servicios</h2>
-        <h3 class="text-center ml3">Soluciones para tu Marca</h3>
+        <h3 class="text-center">Soluciones para tu Marca</h3>
 
         <div class="row g-4">
             <!-- Web Design -->
@@ -411,8 +411,6 @@
                         <li><span>Diseño responsive y optimizado</span></li>
                         <li><span>Optimización para campañas publicitarias.</span></li>
                         <li><span>Formulario de contacto o suscripción.</span></li>
-                        <li><span>Dominio «.com» incluido (1 año).</span></li>
-                        <li><span>Certificado SSL para mayor seguridad.</span></li>
                     </ul>
                 </div>
             </div>
@@ -427,8 +425,6 @@
                         <li><span>Integración de métodos de pago (PayPal, Stripe, etc.)</span></li>
                         <li><span>Gestión de productos y stock</span></li>
                         <li><span>Diseño responsive y optimizado</span></li>
-                        <li><span>Dominio «.com» incluido (1 año).</span></li>
-                        <li><span>Certificado SSL para mayor seguridad.</span></li>
                     </ul>
                 </div>
             </div>
@@ -444,32 +440,51 @@
 
     <!-- Contacto Section -->
     <section class="contact container py-5 border-g" id="contact" style="padding: 67px 60px !important;">
-        <h2 class="text-center text-uppercase title-custom-02">Información de Contacto</h2>
+        <h2 class="text-center text-uppercase title-custom-02">Contacto</h2>
         <h3 class="text-center mb-4">Hablemos de tus Ideas</h3>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <a href="mailto:gabriielamoron2@gmail.com" class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/mails.svg" alt="LinkedIn">
-                    </a>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 d-flex justify-content-end">
+                    <img src="./assets/img/illustration/Contact-Us.svg" alt="Ilustración Contact Us" class="img-fluid"
+                        width="450">
                 </div>
-                <div class="col-auto d-flex align-items-center">
-                    <a href="https://www.instagram.com/xiangling_45/" class="icon-container">
-                        <img class="img-redes dos" src="./assets/img/icons/ig.svg" alt="Instagram">
-                    </a>
+                <div class="col-md-6 d-flex flex-column align-items-start">
+                    <div class="contact-item d-flex align-items-center m-2">
+                        <a href="mailto:gabriielamoron2@gmail.com" class="icon-container"
+                            aria-label="Correo electrónico">
+                            <img class="img-redes" src="./assets/img/icons/mails.svg" alt="Correo">
+                        </a>
+                        <p class="mb-0 ms-2">gabriielamoron2@gmail.com</p>
+                    </div>
+
+                    <div class="contact-item d-flex align-items-center m-2">
+                        <a href="https://www.instagram.com/xiangling_45/" class="icon-container" aria-label="Instagram">
+                            <img class="img-redes" src="./assets/img/icons/ig.svg" alt="Instagram">
+                        </a>
+                        <p class="mb-0 ms-2">@xiangling_45</p>
+                    </div>
+
+                    <!--
+                    <div class="contact-item d-flex align-items-center m-2">
+                        <a href="https://api.whatsapp.com/send/?phone=59175660196&text&type=phone_number&app_absent=0"
+                           class="icon-container" aria-label="WhatsApp">
+                            <img class="img-redes" src="./assets/img/icons/Wpp.svg" alt="WhatsApp">
+                        </a>
+                        <p class="mb-0 ms-2">WhatsApp</p>
+                    </div>
+                    -->
+
+                    <div class="contact-item d-flex align-items-center m-2">
+                        <a href="https://www.linkedin.com/in/gabriela-moron4537/" class="icon-container"
+                            aria-label="LinkedIn">
+                            <img class="img-redes" src="./assets/img/icons/link.svg" alt="LinkedIn">
+                        </a>
+                        <p class="mb-0 ms-2">gabriela-moron4537</p>
+                    </div>
                 </div>
-                <!-- <div class="col-auto d-flex align-items-center">
-                    <a href="https://api.whatsapp.com/send/?phone=59175660196&text&type=phone_number&app_absent=0"
-                        class="icon-container">
-                        <img class="img-redes dos" src="./assets/img/icons/Wpp.svg" alt="WhatsApp">
-                    </a>
-                </div> -->
-                <div class="col-auto">
-                    <a href="https://www.linkedin.com/in/gabriela-moron4537/" class="icon-container">
-                        <img class="img-redes" src="./assets/img/icons/link.svg" alt="LinkedIn">
-                    </a>
-                </div>
+
             </div>
+
         </div>
 
     </section>
