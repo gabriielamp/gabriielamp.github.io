@@ -523,12 +523,9 @@ section#portfolio .swiper-button-next:after {
 
 .hero {
     display: flex;
-
 }
 
-.hero-responsive {
-    display: none;
-}
+
 
 /* Ajustes para pantallas medianas */
 @media (max-width: 1024px) {
@@ -558,13 +555,9 @@ section#portfolio .swiper-button-next:after {
         padding: 35px 38px 60px !important
     }
 
-    .hero {
+    /* .hero {
         display: none;
-    }
-
-    .hero-responsive {
-        display: flex;
-    }
+    } */
 
     p.visible {
         font-size: 18px;
@@ -593,6 +586,13 @@ section#portfolio .swiper-button-next:after {
 
     .skill-title {
         text-align: center;
+    }
+
+    .yop{
+        margin-bottom: 25px;
+    }
+    .flores, .laptop, .colores{
+        display: none;
     }
 
 }

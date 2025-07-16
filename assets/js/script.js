@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Arreglo con las frases a mostrar
     const frases = [
-        '"Hello World! Todo empieza aquí."',
-        '"El café es el combustible que convierte las líneas de código en magia."',
-        '¿Por qué el programador fue al médico?<br>Porque tenía un bug en el sistema digestivo.',
-        '"Detrás de cada gran línea de código, hay una taza de café vacía."'
-    ];
+    '"Hello World! Todo empieza aquí. 💻✨"',
+    '"🌐Tu sitio web, tu universo digital.🚀"',
+    '"Del boceto a la web: damos vida a tus ideas. 🎨💡"',
+];
+
 
     // Selecciona el elemento donde se mostrará la frase
     const fraseElemento = document.querySelector('.frase');
