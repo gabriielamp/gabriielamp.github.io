@@ -165,7 +165,7 @@ div#nav-tabContent {
     border-radius: 20px;
     border: 1px solid var(--verde-borde);
 
-/*     height: 700px;
+    /*     height: 700px;
     overflow: scroll; */
 }
 
@@ -208,11 +208,14 @@ div#nav-tabContent {
 
 /* Estilo del contenedor con scroll */
 .experience-container {
-    height: 400px; /* Ajusta la altura según tu diseño */
+    height: 400px;
+    /* Ajusta la altura según tu diseño */
     overflow-y: auto;
-    padding-right: 10px; /* Evita que el contenido se oculte bajo la barra de scroll */
+    padding-right: 10px;
+    /* Evita que el contenido se oculte bajo la barra de scroll */
     scrollbar-width: thin;
-    scrollbar-color: #063F8D #f1f1f1; /* Colores del scroll en Firefox */
+    scrollbar-color: #063F8D #f1f1f1;
+    /* Colores del scroll en Firefox */
 }
 
 /* Estilo para la barra de desplazamiento en Chrome, Edge y Safari */
@@ -375,8 +378,10 @@ div#list-tab a {
 /* Asegúrate de que el contenedor del slider tenga un tamaño específico */
 .swiper-container {
     width: 100%;
-   /*  max-width: 600px; */ /* Ajusta el ancho según lo necesario */
-    height: 480px; /* Establece una altura específica */
+    /*  max-width: 600px; */
+    /* Ajusta el ancho según lo necesario */
+    height: 480px;
+    /* Establece una altura específica */
     position: relative;
     margin: auto;
     overflow: hidden;
@@ -389,16 +394,18 @@ div#list-tab a {
     /* object-fit: cover; */
     object-fit: contain;
     border-radius: 8px;
-   /*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 /* Ajuste de los botones de navegación */
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
     color: #000;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10; /* Asegura que las flechas estén encima del contenido */
+    z-index: 10;
+    /* Asegura que las flechas estén encima del contenido */
 }
 
 .swiper-button-next {
@@ -421,19 +428,21 @@ div#list-tab a {
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #dc1c2e; /* Usa un color destacado para la bala activa */
+    background-color: #dc1c2e;
+    /* Usa un color destacado para la bala activa */
 }
- .img-redes{
+
+.img-redes {
     width: 36px;
     height: auto;
     z-index: 1;
- }
+}
 
- .dos{
-    width: 30px!important;
- }
+.dos {
+    width: 30px !important;
+}
 
- /* Estilo general para los contenedores de íconos */
+/* Estilo general para los contenedores de íconos */
 .icon-container {
     position: relative;
     display: inline-block;
@@ -449,7 +458,8 @@ div#list-tab a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0deg);
-    width: 60px; /* Ajusta el tamaño del SVG */
+    width: 60px;
+    /* Ajusta el tamaño del SVG */
     height: 60px;
     background-image: url('/assets/img/icons/elipse.svg');
     background-size: contain;
@@ -466,9 +476,12 @@ div#list-tab a {
 
 .fade-in {
     display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    height: 100%; /* Asegura el uso completo del contenedor */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
+    height: 100%;
+    /* Asegura el uso completo del contenedor */
 }
 
 .frase {
@@ -476,10 +489,12 @@ div#list-tab a {
     text-align: center;
     margin: 0;
 }
-.skill-title{
+
+.skill-title {
     font-size: 18px;
     font-weight: 600;
 }
+
 section#portfolio .swiper-button-prev:after {
     content: '' !important;
     background-image: url('/assets/img/icons/flecha-izq.svg');
@@ -490,6 +505,7 @@ section#portfolio .swiper-button-prev:after {
     height: 24px;
     transform: translateX(7px);
 }
+
 section#portfolio .swiper-button-next:after {
     content: '' !important;
     background-image: url('/assets/img/icons/flecha-der.svg');
@@ -500,6 +516,83 @@ section#portfolio .swiper-button-next:after {
     height: 24px;
     transform: translateX(7px);
 }
-.swiper-pagination-bullet-active{
+
+.swiper-pagination-bullet-active {
     background: #A1BE00 !important;
+}
+
+.hero {
+    display: flex;
+
+}
+
+.hero-responsive {
+    display: none;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1024px) {
+    body {
+        max-width: 95%;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    body {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    a.navbar-brand.logo-g {
+        margin-bottom: 12px;
+    }
+
+    .img-2 {
+        width: 100% !important;
+    }
+
+    section#hero,
+    section#about-me,
+    section#contact {
+        padding: 35px 38px 60px !important
+    }
+
+    .hero {
+        display: none;
+    }
+
+    .hero-responsive {
+        display: flex;
+    }
+
+    p.visible {
+        font-size: 18px;
+    }
+
+    #contact p {
+        font-size: 15px;
+    }
+
+    #list-home h3 {
+        font-size: 20px;
+    }
+
+    div#nav-tabContent {
+        height: 620px;
+    }
+
+    div#navbarNav {
+        margin-top: 25px;
+    }
+
+    div#navbarNav>ul>li {
+        text-align: center;
+        margin: 0;
+    }
+
+    .skill-title {
+        text-align: center;
+    }
+
 }
