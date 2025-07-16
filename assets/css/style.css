@@ -551,8 +551,8 @@ section#portfolio .swiper-button-next:after {
 
     section#hero,
     section#about-me,
-    section#contact {
-        padding: 35px 38px 60px !important
+    section#contact, section#services  {
+        padding: 35px 15px 60px !important
     }
 
     /* .hero {
@@ -591,7 +591,7 @@ section#portfolio .swiper-button-next:after {
     .yop{
         margin-bottom: 25px;
     }
-    .flores, .laptop, .colores{
+    .flores, .laptop, .colores, .sparkle-2, .sparkle-4{
         display: none;
     }
 
