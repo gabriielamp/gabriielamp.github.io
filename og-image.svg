@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Gabriela Moron Portfolio</title>
+  <desc id="desc">Imagen social del portfolio de Gabriela Moron Pereira.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F3FF" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#DCE6FF" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2262EA" />
+      <stop offset="100%" stop-color="#1C4FC4" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" rx="36" />
+  <circle cx="1040" cy="110" r="140" fill="#2262EA" opacity="0.12" />
+  <circle cx="180" cy="540" r="190" fill="#2262EA" opacity="0.1" />
+
+  <text x="96" y="170" fill="#2262EA" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="8">
+    PORTFOLIO
+  </text>
+  <text x="96" y="290" fill="#0E1B3D" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="800">
+    Gabriela Moron
+  </text>
+  <text x="96" y="360" fill="#1C4FC4" font-family="Poppins, Arial, sans-serif" font-size="36" font-weight="600">
+    Frontend Developer + UX/UI Designer
+  </text>
+  <text x="96" y="430" fill="#5E6C8F" font-family="Poppins, Arial, sans-serif" font-size="28" font-weight="500">
+    Diseno y desarrollo experiencias digitales
+  </text>
+  <text x="96" y="470" fill="#5E6C8F" font-family="Poppins, Arial, sans-serif" font-size="28" font-weight="500">
+    limpias, atractivas y funcionales.
+  </text>
+
+  <rect x="96" y="515" width="360" height="18" rx="9" fill="url(#accent)" />
+</svg>
