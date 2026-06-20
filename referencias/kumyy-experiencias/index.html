@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referencia visual - Kumyy Experiencias</title>
+  <style>
+    :root{
+      --primary:#F2495B;
+      --primary-dark:#d83e50;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --bg:#fff;
+      --soft:#fff1f3;
+      --soft-2:#f9fafb;
+      --success:#16a34a;
+      --warning:#f97316;
+      --radius:14px;
+      --shadow:0 10px 26px rgba(15,23,42,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Arial,sans-serif}
+    body{background:#fff;color:var(--text);font-size:14px}
+
+    .top-login{height:22px;display:flex;justify-content:flex-end;align-items:center;padding:0 42px;font-size:12px;color:#111827;border-bottom:1px solid #f3f4f6}
+    .header{background:var(--primary);color:#fff;height:58px;display:flex;align-items:center;justify-content:center;padding:0 38px}
+    .header-inner{width:100%;max-width:1180px;display:grid;grid-template-columns:180px 1fr auto auto;align-items:center;gap:18px}
+    .logo{font-size:26px;font-weight:900;letter-spacing:-1px;display:flex;align-items:center;gap:6px}
+    .logo-mark{width:26px;height:22px;border:3px solid #fff;border-radius:5px 5px 9px 9px;position:relative}
+    .logo-mark:before{content:"";position:absolute;left:3px;top:-10px;width:15px;height:15px;border-left:3px solid #fff;border-top:3px solid #fff;transform:rotate(45deg);background:var(--primary)}
+    .search{width:100%;max-width:420px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 14px;height:34px;color:var(--muted);justify-self:start}
+    .search input{border:0;outline:0;width:100%;padding:0 10px;font-size:13px}
+    .cart{font-weight:800;font-size:14px;white-space:nowrap}
+    .add-btn{border:1px solid #fff;color:#fff;background:transparent;border-radius:999px;padding:9px 18px;font-weight:800;cursor:pointer}
+
+    .page-wrap{max-width:1180px;margin:0 auto;padding:28px 28px 70px}
+    .breadcrumbs{color:var(--muted);font-size:13px;margin-bottom:26px}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:30px;align-items:start}
+    .title-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:20px}
+    .main-title{font-size:24px;font-weight:900;color:#273043}
+    .actions{display:flex;gap:10px}
+    .outline-btn{border:1px solid #111827;background:#fff;border-radius:4px;padding:9px 12px;font-weight:800;font-size:12px;cursor:pointer}
+
+    .gallery{position:relative;height:430px;border-radius:4px;overflow:hidden;background-image:url('https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;margin-bottom:16px}
+    .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;color:var(--primary);display:grid;place-items:center;font-size:20px;font-weight:900;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .gallery-nav.left{left:18px}.gallery-nav.right{right:18px}
+    .gallery-btn{position:absolute;right:18px;bottom:18px;border:0;background:#fff;color:var(--primary);padding:11px 18px;border-radius:5px;font-weight:900;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+    .thumbs{display:flex;justify-content:center;gap:12px;margin-bottom:34px}
+    .thumb{width:96px;height:70px;border-radius:3px;border:3px solid #fff;background-size:cover;background-position:center;box-shadow:0 5px 15px rgba(0,0,0,.12)}
+    .thumb:nth-child(1){background-image:url('https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=300&q=80')}
+    .thumb:nth-child(2){background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80')}
+    .thumb:nth-child(3){background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=80')}
+
+    .content-block{margin-bottom:34px}
+    .section-title{font-size:20px;font-weight:900;margin-bottom:14px;color:#273043}
+    .text{color:#374151;line-height:1.85;font-size:14px}
+    .muted{color:var(--muted)}
+    .meta-list{display:grid;gap:10px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;margin-top:18px}
+    .meta-row{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start;font-size:12px}
+    .meta-row strong{color:var(--muted);text-transform:uppercase;font-size:11px}
+    .pill-list{display:flex;flex-wrap:wrap;gap:7px}
+    .pill{padding:5px 9px;border-radius:999px;border:1px solid #d1d5db;background:#f9fafb;font-size:11px;font-weight:700}
+    .pill.green{background:#ecfdf3;color:#166534;border-color:#bbf7d0}
+
+    .commercial-grid{display:grid;gap:14px}
+    .commercial-card{border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:#fff;box-shadow:0 8px 20px rgba(15,23,42,.04)}
+    .commercial-card.highlight{border-color:#ffd4da;background:linear-gradient(135deg,#fff1f3,#fff)}
+    .package-card{display:grid;grid-template-columns:54px 1fr auto;gap:14px;align-items:center;transition:.2s ease}
+    .package-card:hover{border-color:var(--primary);transform:translateY(-1px)}
+    .icon-box{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--soft);color:var(--primary);font-size:25px}
+    .package-name{font-weight:900;margin-bottom:5px;color:#273043}
+    .package-desc{color:var(--muted);font-size:13px;line-height:1.55}
+    .package-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+    .tag{border-radius:999px;background:#f3f4f6;color:#374151;padding:4px 8px;font-size:11px;font-weight:800}
+    .tag.warn{background:#fff7ed;color:#c2410c}.tag.ok{background:#ecfdf3;color:#166534}
+    .package-price{font-weight:900;color:var(--primary);white-space:nowrap;font-size:14px;text-align:right}
+    .benefit-row{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center}
+    .map-placeholder{height:250px;border-radius:8px;background:#e5e7eb;color:#4b5563;display:grid;place-items:center;text-align:center;line-height:1.6;font-weight:700}
+    .video-placeholder{height:290px;border-radius:8px;background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center;display:grid;place-items:center;color:#fff;font-size:48px;font-weight:900}
+    .itinerary{border-left:2px solid #fecdd3;padding-left:22px}
+    .day{position:relative;margin-bottom:18px}.day:before{content:"";position:absolute;left:-29px;top:2px;width:12px;height:12px;border-radius:50%;border:3px solid var(--primary);background:#fff}.day-title{color:var(--primary);font-weight:900;margin-bottom:6px}
+    .faq{border-top:1px solid var(--border)}.faq-item{padding:16px 0;border-bottom:1px solid var(--border)}.faq-question{font-weight:900;margin-bottom:6px}
+    .review-form{display:grid;gap:14px}.review-form input,.review-form textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:13px;outline:0}.review-form textarea{min-height:120px;resize:vertical}
+
+    .sidebar{position:sticky;top:24px}
+    .booking-card,.host-card{border:1px solid var(--border);background:#fff;border-radius:4px;overflow:hidden;margin-bottom:24px;box-shadow:0 8px 20px rgba(15,23,42,.04)}
+    .price-head{padding:18px 20px;border-bottom:1px solid var(--border)}
+    .price-head strong{font-size:18px;color:#111827}.price-head small{display:block;color:var(--muted);margin-bottom:3px}
+    .booking-body{padding:20px}.calendar-box{background:var(--primary);color:#fff;border-radius:4px 4px 0 0;padding:14px;text-align:center;font-weight:900}.mini-calendar{border:1px solid var(--border);border-top:0;margin-bottom:18px;padding:12px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;font-size:12px;color:#6b7280}.mini-calendar strong{color:#111827}.mini-calendar span{padding:6px 0;border-radius:50%}.mini-calendar .selected{background:#e0f2fe;color:#0369a1;font-weight:900}
+    .field{margin-bottom:16px}label.field-label{display:block;font-weight:900;color:#374151;margin-bottom:8px;font-size:13px}input,select{width:100%;border:1px solid var(--border);border-radius:8px;padding:12px 13px;outline:0;font-size:13px;background:#fff}input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(242,73,91,.12)}
+    .field-hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45}
+    .counter{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center}.counter button{height:42px;border:0;border-radius:8px;background:var(--soft);color:var(--primary);font-size:20px;font-weight:900;cursor:pointer}.counter input{text-align:center;font-weight:900}
+    .option-list,.extras{display:grid;gap:10px}.option,.extra-item{border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;background:#fff;display:flex;gap:10px;transition:.2s ease}.option:hover,.extra-item:hover,.option.is-active{border-color:var(--primary);background:#fffafb}.option input,.extra-item input{width:auto;accent-color:var(--primary);margin-top:2px}.option strong,.extra-item strong{display:block;margin-bottom:3px;font-size:13px}.option span,.extra-item small{display:block;color:var(--muted);font-size:12px;line-height:1.4}.option .option-note{margin-top:5px;color:#c2410c;font-size:11px;font-weight:800}.extra-item.disabled{display:none}.extra-badge{margin-left:auto;align-self:flex-start;background:#f3f4f6;color:#374151;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:900;text-transform:uppercase}
+    .alert{display:none;margin:12px 0;border-radius:10px;padding:11px 12px;font-size:12px;line-height:1.45}.alert.show{display:block}.alert-warning{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}.alert-info{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+    .summary{background:#f9fafb;border-radius:12px;padding:14px;margin-top:18px}.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}.row:last-child{border-bottom:0}.row strong{text-align:right}.total{margin-top:14px;background:var(--primary);color:#fff;padding:16px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;font-weight:900}.total strong{font-size:21px}.btn-primary{width:100%;border:0;background:var(--primary);color:#fff;border-radius:5px;padding:15px;font-weight:900;margin-top:16px;cursor:pointer;font-size:14px}.btn-primary:hover{background:var(--primary-dark)}.btn-primary.consult{background:#111827}.help-btn{width:100%;border:1px solid #111827;background:#fff;color:#111827;border-radius:3px;padding:8px 10px;margin-top:8px;font-size:12px;font-weight:800;cursor:pointer}.help-note{text-align:center;margin-top:12px;font-size:12px;color:var(--muted);line-height:1.45}.host-card{padding:24px;text-align:center}.avatar{width:82px;height:82px;border-radius:50%;background:#e5e7eb;margin:auto auto 12px;display:grid;place-items:center;font-size:36px;color:#9ca3af}.experience-badge{display:inline-block;margin-top:10px;background:#eef2ff;color:#4338ca;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900}
+
+    @media(max-width:900px){.header-inner{grid-template-columns:1fr}.search,.cart,.add-btn{display:none}.layout{grid-template-columns:1fr}.sidebar{position:static}.gallery{height:300px}.page-wrap{padding:20px 16px 60px}.title-row{align-items:flex-start;flex-direction:column}.package-card{grid-template-columns:54px 1fr}.package-price{grid-column:2;text-align:left}.meta-row{grid-template-columns:1fr}.top-login{padding:0 16px}.header{padding:0 16px}}
+  </style>
+</head>
+<body>
+  <div class="top-login">Inicio de sesión o registro</div>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo"><span class="logo-mark"></span>kumyy</div>
+      <div class="search"><span>🔎</span><input type="text" placeholder="Buscar experiencias, tours o destinos..." /></div>
+      <div class="cart">Bs.0.00 🛒</div>
+      <button class="add-btn">Registrar tu Experiencia, Tour o destino</button>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <div class="breadcrumbs">Inicio  ›  Experiencias de aventura  ›  Tour – Aguas Calientes en Roboré</div>
+
+    <main class="layout">
+      <section>
+        <div class="title-row">
+          <h1 class="main-title">Tour – Aguas Calientes en Roboré</h1>
+          <div class="actions">
+            <button class="outline-btn">♡ Agregar a Favorito</button>
+            <button class="outline-btn">↗</button>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-nav left">‹</div>
+          <div class="gallery-nav right">›</div>
+          <button class="gallery-btn">📷 Galería</button>
+        </div>
+        <div class="thumbs"><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div></div>
+
+        <section class="content-block">
+          <h2 class="section-title">Descripción</h2>
+          <p class="text">Además del nombre del pueblo, las Aguas Calientes de Roboré son literalmente las aguas de un río con temperaturas superiores a los 40° C. El Río Aguas Calientes tiene propiedades medicinales y relajantes, además de ser aguas cristalinas, con arena suave y un entorno natural ideal para disfrutar en familia o con amigos.</p>
+          <div class="meta-list">
+            <div class="meta-row"><strong>Idiomas</strong><div class="pill-list"><span class="pill">🇪🇸 Español</span><span class="pill">🇬🇧 Inglés</span><span class="pill">🇵🇹 Portugués</span></div></div>
+            <div class="meta-row"><strong>Comida · Transporte</strong><div class="pill-list"><span class="pill green">Desayuno incluido</span><span class="pill green">Transporte incluido</span><span class="pill green">Todo incluido disponible</span></div></div>
+            <div class="meta-row"><strong>Ciudad</strong><div class="pill-list"><span class="pill">Santa Cruz</span></div></div>
+            <div class="meta-row"><strong>Público</strong><div class="pill-list"><span class="pill">Familiar</span><span class="pill">Mixto</span></div></div>
+          </div>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">Paquetes disponibles</h2>
+          <p class="text">Elige el paquete que mejor se adapte a tu experiencia. Cada paquete muestra su forma de cobro, capacidad y condiciones para evitar confusión.</p>
+          <div class="commercial-grid">
+            <div class="commercial-card package-card">
+              <div class="icon-box">🌿</div>
+              <div>
+                <div class="package-name">Experiencia básica</div>
+                <p class="package-desc">Incluye acceso a la experiencia, recorrido principal y asistencia del proveedor.</p>
+                <div class="package-meta"><span class="tag">Por persona</span><span class="tag ok">Alimentación opcional</span></div>
+              </div>
+              <div class="package-price">Bs 200 / persona</div>
+            </div>
+
+            <div class="commercial-card package-card">
+              <div class="icon-box">🍽️</div>
+              <div>
+                <div class="package-name">Experiencia con alimentación</div>
+                <p class="package-desc">Incluye recorrido principal, alimentación básica y coordinación previa.</p>
+                <div class="package-meta"><span class="tag">Por persona</span><span class="tag ok">Alimentación incluida</span><span class="tag warn">No duplica extra de comida</span></div>
+              </div>
+              <div class="package-price">Bs 280 / persona</div>
+            </div>
+
+            <div class="commercial-card package-card">
+              <div class="icon-box">🚐</div>
+              <div>
+                <div class="package-name">Tour privado para grupo</div>
+                <p class="package-desc">Atención personalizada y horario coordinado. Incluye hasta 6 personas.</p>
+                <div class="package-meta"><span class="tag">Precio fijo</span><span class="tag ok">Hasta 6 personas</span><span class="tag warn">Más de 6: consultar</span></div>
+              </div>
+              <div class="package-price">Bs 1.200 / grupo</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block commercial-card highlight">
+          <div class="benefit-row">
+            <div class="icon-box">⭐</div>
+            <div>
+              <h2 class="section-title" style="margin-bottom:6px">Beneficio por reservar desde Kumyy</h2>
+              <p class="text">Reserva desde Kumyy y accede a beneficios exclusivos ofrecidos por el proveedor, como atención preferencial, recomendaciones previas o beneficios especiales según disponibilidad.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">¿Qué incluye la experiencia?</h2>
+          <p class="text">Recorrido guiado, asistencia durante la experiencia, recomendaciones previas y coordinación con el proveedor. Algunos servicios como alimentación, transporte u hospedaje pueden tener costo adicional según el paquete seleccionado.</p>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">Ubicación</h2>
+          <p class="text" style="margin-bottom:10px">📍 Roboré</p>
+          <div class="map-placeholder">Oops! Something went wrong.<br>Mapa de referencia / Google Maps</div>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">Video</h2>
+          <div class="video-placeholder">▶</div>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">Describe qué harás</h2>
+          <div class="itinerary">
+            <div class="day"><div class="day-title">Día 1 · Roboré — Aguas Calientes</div><p class="text">Nos encontraremos por la mañana para iniciar el recorrido. Visitaremos la zona principal, disfrutaremos de las aguas termales y coordinaremos los servicios incluidos según el paquete seleccionado.</p></div>
+            <div class="day"><div class="day-title">Día 2 · Actividad opcional</div><p class="text">Según disponibilidad, se podrá agregar transporte, alimentación o guía privado como servicios adicionales.</p></div>
+          </div>
+        </section>
+
+        <section class="content-block">
+          <h2 class="section-title">Preguntas frecuentes</h2>
+          <div class="faq">
+            <div class="faq-item"><div class="faq-question">¿Puedo agregar alimentación o transporte?</div><p class="text">Sí, puedes seleccionar servicios adicionales desde el panel de reserva. Si el paquete ya incluye alimentación, se oculta la opción duplicada y solo aparece menú especial.</p></div>
+            <div class="faq-item"><div class="faq-question">¿Cuántas personas incluye el tour privado?</div><p class="text">El tour privado incluye hasta 6 personas. Para grupos mayores se recomienda consultar disponibilidad con el proveedor.</p></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sidebar">
+        <div class="booking-card">
+          <div class="price-head"><small>Desde</small><strong>Bs.200.00</strong></div>
+          <div class="booking-body">
+            <div class="calendar-box">JUNIO 2026</div>
+            <div class="mini-calendar"><strong>L</strong><strong>M</strong><strong>X</strong><strong>J</strong><strong>V</strong><strong>S</strong><strong>D</strong><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span class="selected">20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+
+            <div class="field">
+              <label class="field-label">Fecha de la experiencia</label>
+              <input type="date" id="dateInput" />
+            </div>
+
+            <div class="field">
+              <label class="field-label">Modalidad</label>
+              <select id="modeInput">
+                <option value="day">Día · sin recargo</option>
+                <option value="night">Noche · + Bs 100</option>
+                <option value="full">Día y noche · + Bs 180</option>
+              </select>
+              <div class="field-hint" id="modeHint">La modalidad día no modifica el precio base.</div>
+            </div>
+
+            <div class="field">
+              <label class="field-label">Cantidad de personas</label>
+              <div class="counter"><button type="button" id="minusBtn">−</button><input type="number" id="peopleInput" value="1" min="1" /><button type="button" id="plusBtn">+</button></div>
+              <div class="field-hint">Para tour privado: hasta 6 personas incluidas. Más de 6 requiere consulta.</div>
+            </div>
+
+            <div class="field">
+              <label class="field-label">Selecciona un paquete</label>
+              <div class="option-list">
+                <label class="option is-active" data-package-card="basic"><input type="radio" name="package" value="basic" checked /><div><strong>Experiencia básica</strong><span>Bs 200 por persona · alimentación opcional</span></div></label>
+                <label class="option" data-package-card="food"><input type="radio" name="package" value="food" /><div><strong>Con alimentación</strong><span>Bs 280 por persona · alimentación incluida</span><div class="option-note">No se mostrará “alimentación extra” para evitar doble cobro.</div></div></label>
+                <label class="option" data-package-card="private"><input type="radio" name="package" value="private" /><div><strong>Tour privado</strong><span>Bs 1.200 por grupo · hasta 6 personas</span><div class="option-note">Más de 6 personas: consultar disponibilidad.</div></div></label>
+              </div>
+            </div>
+
+            <div id="privateAlert" class="alert alert-warning">El tour privado incluye hasta 6 personas. Para grupos mayores, el sistema cambia a consulta de disponibilidad para evitar un cálculo incorrecto.</div>
+            <div id="foodAlert" class="alert alert-info">Este paquete ya incluye alimentación básica. Se ocultó “alimentación extra”; puedes elegir menú especial si corresponde.</div>
+
+            <div class="field">
+              <label class="field-label">Servicios adicionales opcionales</label>
+              <div class="extras">
+                <label class="extra-item" id="extraFoodBasic"><input type="checkbox" class="extra" value="80" data-type="person" data-name="Alimentación" data-availability="basic,private" /><div><strong>Agregar alimentación</strong><small>Bs 80 por persona</small></div><span class="extra-badge">Opcional</span></label>
+                <label class="extra-item disabled" id="extraSpecialMenu"><input type="checkbox" class="extra" value="45" data-type="person" data-name="Menú especial" data-availability="food" /><div><strong>Menú especial</strong><small>Bs 45 por persona · solo si ya incluye alimentación</small></div><span class="extra-badge">Opcional</span></label>
+                <label class="extra-item"><input type="checkbox" class="extra" value="150" data-type="fixed" data-name="Transporte adicional" data-availability="all" /><div><strong>Transporte adicional</strong><small>Bs 150 precio fijo</small></div><span class="extra-badge">Opcional</span></label>
+                <label class="extra-item"><input type="checkbox" class="extra" value="250" data-type="fixed" data-name="Guía privado" data-availability="basic,food" /><div><strong>Guía privado</strong><small>Bs 250 precio fijo · no aplica a tour privado</small></div><span class="extra-badge">Opcional</span></label>
+              </div>
+            </div>
+
+            <div class="summary">
+              <div class="row"><span>Modalidad</span><strong id="modeSummary">Día · Bs 0</strong></div>
+              <div class="row"><span>Paquete</span><strong id="packageSummary">Bs 200</strong></div>
+              <div class="row"><span>Personas</span><strong id="peopleSummary">1</strong></div>
+              <div class="row"><span>Capacidad / condición</span><strong id="capacitySummary">Por persona</strong></div>
+              <div class="row"><span>Extras</span><strong id="extrasSummary">Bs 0</strong></div>
+            </div>
+
+            <div class="total"><span>Total calculado</span><strong id="totalSummary">Bs 200</strong></div>
+            <button class="btn-primary" id="reserveBtn" type="button">Reservar ahora</button>
+            <button class="help-btn" type="button">¿Necesitas ayuda?</button>
+            <p class="help-note" id="helpNote">El precio se calcula según paquete, modalidad, personas y servicios seleccionados.</p>
+          </div>
+        </div>
+
+        <div class="host-card">
+          <div class="avatar">👤</div>
+          <h3>Test Tours</h3>
+          <p>Guía Turístico</p>
+          <span class="experience-badge">3 años de experiencia</span>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const peopleInput = document.getElementById('peopleInput');
+    const minusBtn = document.getElementById('minusBtn');
+    const plusBtn = document.getElementById('plusBtn');
+    const modeInput = document.getElementById('modeInput');
+    const modeHint = document.getElementById('modeHint');
+    const packageSummary = document.getElementById('packageSummary');
+    const peopleSummary = document.getElementById('peopleSummary');
+    const extrasSummary = document.getElementById('extrasSummary');
+    const totalSummary = document.getElementById('totalSummary');
+    const modeSummary = document.getElementById('modeSummary');
+    const capacitySummary = document.getElementById('capacitySummary');
+    const reserveBtn = document.getElementById('reserveBtn');
+    const helpNote = document.getElementById('helpNote');
+    const privateAlert = document.getElementById('privateAlert');
+    const foodAlert = document.getElementById('foodAlert');
+
+    const packagePrices = {
+      basic: { label: 'Experiencia básica', price: 200, type: 'person', capacity: 'Por persona', includesFood: false },
+      food: { label: 'Con alimentación', price: 280, type: 'person', capacity: 'Por persona · alimentación incluida', includesFood: true },
+      private: { label: 'Tour privado', price: 1200, type: 'fixed', capacity: 'Precio fijo · hasta 6 personas', includesFood: false, maxPeople: 6 }
+    };
+
+    const modePrices = {
+      day: { label: 'Día', price: 0, hint: 'La modalidad día no modifica el precio base.' },
+      night: { label: 'Noche', price: 100, hint: 'La modalidad noche agrega un recargo fijo de Bs 100.' },
+      full: { label: 'Día y noche', price: 180, hint: 'La modalidad día y noche agrega un recargo fijo de Bs 180.' }
+    };
+
+    function formatBs(value){ return 'Bs ' + value.toLocaleString('es-BO'); }
+    function getSelectedPackage(){ return document.querySelector('input[name="package"]:checked').value; }
+
+    function syncOptions(selected){
+      document.querySelectorAll('.option').forEach(option => option.classList.remove('is-active'));
+      const activeCard = document.querySelector(`[data-package-card="${selected}"]`);
+      if(activeCard) activeCard.classList.add('is-active');
+
+      document.querySelectorAll('.extra-item').forEach(item => {
+        const extra = item.querySelector('.extra');
+        const available = extra.dataset.availability;
+        const isAvailable = available === 'all' || available.split(',').includes(selected);
+        item.classList.toggle('disabled', !isAvailable);
+        if(!isAvailable) extra.checked = false;
+      });
+
+      foodAlert.classList.toggle('show', selected === 'food');
+    }
+
+    function calculateTotal(){
+      const people = Math.max(1, Number(peopleInput.value) || 1);
+      peopleInput.value = people;
+
+      const selectedKey = getSelectedPackage();
+      const selectedPackage = packagePrices[selectedKey];
+      const selectedMode = modePrices[modeInput.value];
+
+      syncOptions(selectedKey);
+      modeHint.textContent = selectedMode.hint;
+
+      const needsConsult = selectedKey === 'private' && people > selectedPackage.maxPeople;
+      privateAlert.classList.toggle('show', needsConsult);
+
+      let packageTotal = selectedPackage.type === 'person' ? selectedPackage.price * people : selectedPackage.price;
+      let extrasTotal = 0;
+      let extrasNames = [];
+
+      document.querySelectorAll('.extra:checked').forEach(extra => {
+        const price = Number(extra.value);
+        const type = extra.dataset.type;
+        const name = extra.dataset.name;
+        extrasTotal += type === 'person' ? price * people : price;
+        extrasNames.push(name);
+      });
+
+      const total = packageTotal + extrasTotal + selectedMode.price;
+
+      modeSummary.textContent = `${selectedMode.label} · ${formatBs(selectedMode.price)}`;
+      packageSummary.textContent = `${selectedPackage.label} · ${formatBs(packageTotal)}`;
+      peopleSummary.textContent = people;
+      capacitySummary.textContent = selectedPackage.capacity;
+      extrasSummary.textContent = extrasNames.length ? `${extrasNames.join(', ')} · ${formatBs(extrasTotal)}` : 'Sin extras · Bs 0';
+      totalSummary.textContent = needsConsult ? 'Consultar' : formatBs(total);
+
+      reserveBtn.textContent = needsConsult ? 'Consultar disponibilidad' : 'Reservar ahora';
+      reserveBtn.classList.toggle('consult', needsConsult);
+      helpNote.textContent = needsConsult
+        ? 'Para más de 6 personas en tour privado, el proveedor debe confirmar disponibilidad y precio final.'
+        : 'El precio se calcula según paquete, modalidad, personas y servicios seleccionados.';
+    }
+
+    minusBtn.addEventListener('click', () => { peopleInput.value = Math.max(1, Number(peopleInput.value) - 1); calculateTotal(); });
+    plusBtn.addEventListener('click', () => { peopleInput.value = Number(peopleInput.value) + 1; calculateTotal(); });
+    peopleInput.addEventListener('input', calculateTotal);
+    modeInput.addEventListener('change', calculateTotal);
+    document.querySelectorAll('input[name="package"]').forEach(input => input.addEventListener('change', calculateTotal));
+    document.querySelectorAll('.extra').forEach(input => input.addEventListener('change', calculateTotal));
+    calculateTotal();
+  </script>
+</body>
+</html>

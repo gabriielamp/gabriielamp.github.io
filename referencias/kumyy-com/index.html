@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referencia visual - Kumyy.com Paquetes dinámicos</title>
+  <style>
+    :root {
+      --kumyy: #f2495b;
+      --kumyy-dark: #dd3f50;
+      --text: #2f3442;
+      --muted: #707789;
+      --line: #e9ecf2;
+      --soft: #fff4f6;
+      --blue-soft: #dff0ff;
+      --bg: #f7f8fb;
+      --white: #fff;
+      --success: #22c55e;
+      --shadow: 0 12px 28px rgba(18, 24, 38, .08);
+      --radius: 18px
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5
+    }
+
+    .topbar {
+      height: 74px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 20
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--kumyy);
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -.5px
+    }
+
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      border: 3px solid var(--kumyy);
+      border-radius: 7px;
+      transform: rotate(45deg);
+      border-right-color: transparent;
+      border-bottom-color: transparent
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+      color: #222
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px
+    }
+
+    .cart {
+      position: relative;
+      font-size: 22px
+    }
+
+    .cart:after {
+      content: "0";
+      position: absolute;
+      top: -7px;
+      right: -9px;
+      background: var(--kumyy);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center
+    }
+
+    .avatar-small {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffb6c1, #8b5cf6);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #ffcad1
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 38px auto 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 28px;
+      align-items: start
+    }
+
+    .main-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 16px
+    }
+
+    .title-block h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: -.6px;
+      margin-bottom: 8px
+    }
+
+    .location {
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 6px;
+      align-items: center
+    }
+
+    .price-top {
+      color: var(--kumyy);
+      font-size: 22px;
+      font-weight: 900;
+      white-space: nowrap;
+      padding-top: 6px
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.35fr .75fr .75fr;
+      grid-template-rows: 180px 180px;
+      gap: 8px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+      background: #ddd
+    }
+
+    .gallery-img {
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 160px
+    }
+
+    .gallery-img.main {
+      grid-row: 1/span 2;
+      background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80')
+    }
+
+    .gallery-img:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80')
+    }
+
+    .gallery-img:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80')
+    }
+
+    .gallery-img:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')
+    }
+
+    .gallery-img:nth-child(5) {
+      background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80')
+    }
+
+    .gallery-btn {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, .95);
+      font-weight: 800;
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .12)
+    }
+
+    .highlight {
+      background: var(--blue-soft);
+      border-radius: 12px;
+      padding: 13px 18px;
+      text-align: center;
+      color: #263142;
+      font-weight: 800;
+      margin: 0 0 18px
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(18, 24, 38, .05);
+      padding: 24px;
+      margin-bottom: 18px
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: -.2px
+    }
+
+    .section-title .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--kumyy);
+      flex: 0 0 auto
+    }
+
+    .text {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+      margin-top: 14px
+    }
+
+    .info-line {
+      display: flex;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--text)
+    }
+
+    .info-line span {
+      color: var(--kumyy)
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      background: #f4f6f9;
+      border-radius: 14px;
+      padding: 6px;
+      margin-bottom: 18px
+    }
+
+    .tab {
+      flex: 1;
+      border: 0;
+      border-radius: 11px;
+      padding: 11px;
+      background: transparent;
+      font-weight: 800;
+      color: var(--muted);
+      cursor: pointer
+    }
+
+    .tab.active {
+      color: var(--kumyy);
+      background: #fff;
+      box-shadow: 0 6px 14px rgba(18, 24, 38, .06)
+    }
+
+    .tab-panel {
+      display: none
+    }
+
+    .tab-panel.active {
+      display: block
+    }
+
+    .package-list {
+      display: grid;
+      gap: 14px
+    }
+
+    .package {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 14px;
+      align-items: start;
+      background: #fff;
+      transition: .2s ease
+    }
+
+    .package:hover {
+      border-color: #ffb4bd;
+      background: #fffafb;
+      transform: translateY(-1px)
+    }
+
+    .package-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--soft);
+      color: var(--kumyy);
+      display: grid;
+      place-items: center;
+      font-size: 22px
+    }
+
+    .package h3 {
+      font-size: 16px;
+      margin-bottom: 4px
+    }
+
+    .package p {
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-bottom: 8px
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .tag {
+      border-radius: 999px;
+      background: #f2f4f7;
+      color: #596174;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 9px
+    }
+
+    .tag.warn {
+      background: #fff7ed;
+      color: #c2410c
+    }
+
+    .tag.ok {
+      background: #ecfdf3;
+      color: #15803d
+    }
+
+    .package-price {
+      color: var(--kumyy);
+      font-weight: 900;
+      white-space: nowrap;
+      text-align: right
+    }
+
+    .benefit-box {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid #fed7aa;
+      background: linear-gradient(135deg, #fff7ed, #fff);
+      border-radius: 16px
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #ffedd5;
+      color: #f97316;
+      display: grid;
+      place-items: center;
+      font-size: 24px
+    }
+
+    .benefit-box h3 {
+      margin-bottom: 4px;
+      font-size: 17px
+    }
+
+    .visual-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px
+    }
+
+    .fexpo-card {
+      border-color: #bfdbfe;
+      background: linear-gradient(135deg, #eff6ff, #fff)
+    }
+
+    .fexpo-banner {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      border-radius: 16px;
+      padding: 16px
+    }
+
+    .fexpo-banner strong {
+      color: #1d4ed8;
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .fexpo-form-preview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .mini-input {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      color: #8a92a3;
+      font-size: 13px
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 92px
+    }
+
+    .booking-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden
+    }
+
+    .booking-head {
+      padding: 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px
+    }
+
+    .booking-head small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 700
+    }
+
+    .booking-head strong {
+      font-size: 24px;
+      color: var(--kumyy)
+    }
+
+    .status-pill {
+      background: #ecfdf3;
+      color: #15803d;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap
+    }
+
+    .booking-body {
+      padding: 22px
+    }
+
+    .field {
+      margin-bottom: 16px
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: #344054;
+      font-weight: 900;
+      margin-bottom: 8px
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 13px;
+      outline: none;
+      font: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: #fff
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--kumyy);
+      box-shadow: 0 0 0 4px rgba(242, 73, 91, .11)
+    }
+
+    .inline-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .counter {
+      display: grid;
+      grid-template-columns: 48px 1fr 48px;
+      gap: 10px
+    }
+
+    .counter button {
+      border: 0;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--kumyy);
+      font-size: 22px;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .counter input {
+      text-align: center;
+      font-weight: 900
+    }
+
+    .option-list,
+    .extra-list {
+      display: grid;
+      gap: 10px
+    }
+
+    .option,
+    .extra {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      cursor: pointer;
+      background: #fff;
+      transition: .2s ease
+    }
+
+    .option.active,
+    .option:hover,
+    .extra:hover {
+      border-color: #ffb4bd;
+      background: #fffafb
+    }
+
+    .option input,
+    .extra input {
+      width: auto;
+      margin-top: 4px;
+      accent-color: var(--kumyy)
+    }
+
+    .option strong,
+    .extra strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px
+    }
+
+    .option small,
+    .extra small {
+      display: block;
+      color: var(--muted);
+      font-size: 12.5px
+    }
+
+    .fexpo-toggle {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px
+    }
+
+    .fexpo-toggle label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 0;
+      cursor: pointer;
+      color: #1d4ed8
+    }
+
+    .fexpo-toggle input {
+      width: auto;
+      margin-top: 4px;
+      accent-color: #2563eb
+    }
+
+    .company-fields {
+      display: none;
+      background: #f8fbff;
+      border: 1px dashed #bfdbfe;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px
+    }
+
+    .company-fields.active {
+      display: block
+    }
+
+    .company-fields .field {
+      margin-bottom: 10px
+    }
+
+    .summary {
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 18px
+    }
+
+    .summary-title {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 8px
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 13px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .summary-row:last-child {
+      border-bottom: none
+    }
+
+    .summary-row span {
+      color: var(--muted)
+    }
+
+    .summary-row strong {
+      text-align: right
+    }
+
+    .total {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--kumyy);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 900
+    }
+
+    .total strong {
+      font-size: 22px
+    }
+
+    .primary-btn {
+      border: 0;
+      width: 100%;
+      padding: 15px;
+      border-radius: 999px;
+      background: var(--kumyy);
+      color: #fff;
+      font-weight: 900;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: .2s ease
+    }
+
+    .primary-btn:hover {
+      background: var(--kumyy-dark)
+    }
+
+    .primary-btn.request {
+      background: #2563eb
+    }
+
+    .side-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+      margin-top: 12px
+    }
+
+    .mini-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .host-band {
+      margin-top: 48px;
+      background: var(--kumyy);
+      color: #fff;
+      padding: 42px 0
+    }
+
+    .host-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px
+    }
+
+    .host-avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fef3c7, #38bdf8);
+      border: 4px solid rgba(255, 255, 255, .35)
+    }
+
+    .host-inner h3 {
+      font-size: 24px;
+      margin-bottom: 2px
+    }
+
+    .host-inner p {
+      opacity: .9;
+      margin-bottom: 12px
+    }
+
+    .host-inner button {
+      border: 1px solid rgba(255, 255, 255, .8);
+      background: transparent;
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .map-preview {
+      width: min(1120px, calc(100% - 32px));
+      height: 260px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, rgba(242, 73, 91, .18) 1px, transparent 1px), linear-gradient(rgba(242, 73, 91, .12) 1px, transparent 1px), #e8f4ef;
+      background-size: 52px 52px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .map-pin {
+      position: absolute;
+      left: 52%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800
+    }
+
+    .similar {
+      width: min(1120px, calc(100% - 32px));
+      margin: 44px auto
+    }
+
+    .similar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 210px);
+      gap: 18px;
+      margin-top: 18px
+    }
+
+    .similar-card {
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(18, 24, 38, .06)
+    }
+
+    .similar-img {
+      height: 130px;
+      background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative
+    }
+
+    .similar-img:after {
+      content: 'Bs 500/hora';
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: var(--kumyy);
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 900
+    }
+
+    .similar-content {
+      padding: 12px;
+      font-size: 13px
+    }
+
+    .similar-content strong {
+      display: block;
+      margin-bottom: 4px
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .footer-inner strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 8px
+    }
+
+    @media(max-width:980px) {
+      .nav-links {
+        display: none
+      }
+
+      .container {
+        grid-template-columns: 1fr
+      }
+
+      .sidebar {
+        position: static
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 140px 140px
+      }
+
+      .gallery-img.main {
+        grid-column: 1/span 2;
+        grid-row: auto
+      }
+
+      .package {
+        grid-template-columns: 44px 1fr
+      }
+
+      .package-price {
+        grid-column: 2;
+        text-align: left
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:560px) {
+      .container {
+        width: calc(100% - 22px);
+        margin-top: 22px
+      }
+
+      .main-title-row {
+        display: block
+      }
+
+      .price-top {
+        margin-top: 12px
+      }
+
+      .gallery {
+        display: block;
+        height: auto
+      }
+
+      .gallery-img {
+        height: 180px;
+        display: none
+      }
+
+      .gallery-img.main {
+        display: block;
+        height: 280px
+      }
+
+      .quick-info,
+      .fexpo-form-preview,
+      .inline-fields,
+      .similar-grid {
+        grid-template-columns: 1fr
+      }
+
+      .tabs {
+        flex-direction: column
+      }
+
+      .host-inner {
+        flex-direction: column;
+        text-align: center
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand"><span class="brand-mark"></span><span>kumyy</span></div>
+      <div class="nav-links"><span>Inicio</span><span>Qué es Kumyy</span><span>¿Qué te gustaría
+          compartir?</span><span>Explora alojamientos y espacios en alquiler</span></div>
+      <div class="user-actions"><span class="cart">🛒</span><span class="avatar-small"></span><strong>Gabym</strong>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="content">
+      <div class="main-title-row">
+        <div class="title-block">
+          <h1>Salón de eventos Rodolfo</h1>
+          <div class="location">📍 Santa Cruz, Bolivia · Zona Norte</div>
+        </div>
+        <div class="price-top">Bs 500 por hora</div>
+      </div>
+      <div class="gallery">
+        <div class="gallery-img main"><button class="gallery-btn">📷 Ver galería</button></div>
+        <div class="gallery-img"></div>
+        <div class="gallery-img"></div>
+        <div class="gallery-img"></div>
+        <div class="gallery-img"></div>
+      </div>
+      <div class="highlight">✨ Hermoso salón para eventos corporativos, sociales y experiencias especiales ✨</div>
+      <article class="card">
+        <h2 class="section-title"><span class="dot"></span>Descripción</h2>
+        <p class="text">Espacio ideal para eventos corporativos, reuniones privadas, capacitaciones, celebraciones y
+          actividades sociales. El salón permite configurar paquetes, servicios adicionales y opciones comerciales según
+          las necesidades del cliente.</p>
+        <div class="quick-info">
+          <div class="info-line"><span>👥</span> Capacidad máxima: 350 personas</div>
+          <div class="info-line"><span>🕒</span> Reserva por hora</div>
+          <div class="info-line"><span>🍽️</span> Alimentación coordinable</div>
+          <div class="info-line"><span>🏢</span> Ideal para empresas y eventos</div>
+        </div>
+      </article>
+      <article class="card">
+        <h2 class="section-title"><span class="dot"></span>Opciones comerciales</h2>
+        <div class="tabs"><button class="tab active" data-tab="base">Alquiler base</button><button class="tab"
+            data-tab="packages">Paquetes</button><button class="tab" data-tab="benefits">Beneficios</button></div>
+        <div class="tab-panel active" id="base">
+          <p class="text">El alquiler base incluye uso del salón, mobiliario estándar, baños, limpieza básica y
+            coordinación inicial. Servicios como alimentación, decoración o equipamiento especial pueden tener costo
+            adicional.</p>
+          <div class="quick-info">
+            <div class="info-line"><span>✅</span> Uso del espacio por horario reservado</div>
+            <div class="info-line"><span>✅</span> Mobiliario básico incluido</div>
+            <div class="info-line"><span>ℹ️</span> Alimentación se coordina directamente</div>
+            <div class="info-line"><span>⚠️</span> Algunos extras pueden tener costo adicional</div>
+          </div>
+        </div>
+        <div class="tab-panel" id="packages">
+          <div class="package-list">
+            <div class="package">
+              <div class="package-icon">🎉</div>
+              <div>
+                <h3>Paquete Evento Estándar</h3>
+                <p>Incluye salón, mobiliario base y coordinación inicial. Ideal para reuniones o eventos privados.</p>
+                <div class="meta-tags"><span class="tag ok">Incluye 30 personas</span><span class="tag">Extra: Bs
+                    30/persona</span><span class="tag">Activo</span></div>
+              </div>
+              <div class="package-price">Bs 1.000</div>
+            </div>
+            <div class="package">
+              <div class="package-icon">🍽️</div>
+              <div>
+                <h3>Paquete con Alimentación</h3>
+                <p>Incluye salón, 30 personas, alimentación básica y coordinación de servicio.</p>
+                <div class="meta-tags"><span class="tag ok">Incluye comida</span><span class="tag">Extra: Bs
+                    50/persona</span><span class="tag warn">No duplica alimentación</span></div>
+              </div>
+              <div class="package-price">Bs 2.500</div>
+            </div>
+            <div class="package">
+              <div class="package-icon">🏢</div>
+              <div>
+                <h3>Paquete Corporativo</h3>
+                <p>Incluye salón, coffee break, proyector y apoyo básico para evento empresarial.</p>
+                <div class="meta-tags"><span class="tag ok">Hasta 50 personas</span><span class="tag">Extra: Bs
+                    45/persona</span><span class="tag">Sujeto a disponibilidad</span></div>
+              </div>
+              <div class="package-price">Bs 3.200</div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="benefits">
+          <div class="benefit-box">
+            <div class="benefit-icon">🎁</div>
+            <div>
+              <h3>Beneficio por reservar desde Kumyy</h3>
+              <p class="text">Reserva desde Kumyy y recibe atención preferencial, coordinación previa del evento y
+                acceso a beneficios exclusivos del anfitrión.</p>
+            </div>
+          </div>
+          <p class="visual-note">Este bloque representa el nuevo campo opcional de beneficios exclusivos para usuarios
+            Kumyy.</p>
+        </div>
+      </article>
+      <article class="card">
+        <h2 class="section-title"><span class="dot"></span>Servicios adicionales disponibles</h2>
+        <p class="text">El usuario podrá seleccionar servicios adicionales según el paquete elegido. Si el paquete ya
+          incluye alimentación, el sistema evita mostrar el mismo extra duplicado y ofrece opciones complementarias como
+          menú especial.</p>
+        <div class="quick-info">
+          <div class="info-line"><span>🍽️</span> Alimentación adicional</div>
+          <div class="info-line"><span>☕</span> Coffee break</div>
+          <div class="info-line"><span>🎈</span> Decoración</div>
+          <div class="info-line"><span>📺</span> Equipamiento extra</div>
+        </div>
+      </article>
+      <article class="card fexpo-card">
+        <h2 class="section-title"><span class="dot"></span>Módulo especial FEXPOCRUZ</h2>
+        <div class="fexpo-banner">
+          <div>🛡️</div>
+          <div><strong>Reserva sujeta a revisión</strong>
+            <p class="text">Para espacios FEXPOCRUZ, no se aceptará pago directo. La solicitud quedará pendiente hasta
+              que la empresa sea revisada y aprobada.</p>
+          </div>
+        </div>
+        <div class="fexpo-form-preview">
+          <div class="mini-input">Nombre de la empresa</div>
+          <div class="mini-input">NIT</div>
+          <div class="mini-input">Rubro de la empresa</div>
+          <div class="mini-input">Representante</div>
+          <div class="mini-input">Correo electrónico</div>
+          <div class="mini-input">Redes sociales / sitio web</div>
+        </div>
+      </article>
+      <article class="card">
+        <h2 class="section-title"><span class="dot"></span>Características</h2>
+        <div class="quick-info">
+          <div class="info-line"><span>❄️</span> Aire acondicionado</div>
+          <div class="info-line"><span>☕</span> Cafetería</div>
+          <div class="info-line"><span>📽️</span> Proyector</div>
+          <div class="info-line"><span>📶</span> WiFi 24hr</div>
+          <div class="info-line"><span>🚭</span> Área no fumar</div>
+          <div class="info-line"><span>🧹</span> Limpieza de espacio</div>
+        </div>
+      </article>
+      <article class="card">
+        <h2 class="section-title"><span class="dot"></span>Disponibilidad</h2>
+        <p class="text">Calendario referencial. La reserva se calculará según fecha, horario, cantidad de personas,
+          paquete y servicios seleccionados.</p>
+        <div
+          style="margin-top:16px;height:170px;border:1px solid var(--line);border-radius:14px;background:repeating-linear-gradient(0deg,#fff,#fff 32px,#f2f4f7 33px),repeating-linear-gradient(90deg,transparent,transparent 95px,#eef1f5 96px);">
+        </div>
+      </article>
+    </section>
+    <aside class="sidebar">
+      <div class="booking-card">
+        <div class="booking-head">
+          <div><small>Desde</small><strong>Bs 500/hora</strong></div><span class="status-pill"
+            id="bookingStatus">Reserva normal</span>
+        </div>
+        <div class="booking-body">
+          <div class="fexpo-toggle"><label><input type="checkbox" id="fexpoCheck"><span><strong>Esta reserva es para
+                  FEXPOCRUZ</strong><br><small>No se habilita pago directo. Se enviará una solicitud para
+                  revisión.</small></span></label></div>
+          <div class="company-fields" id="companyFields">
+            <div class="field"><label>Nombre de la empresa</label><input type="text" placeholder="Ej: Empresa SRL">
+            </div>
+            <div class="inline-fields">
+              <div class="field"><label>NIT</label><input type="text" placeholder="Ej: 123456789"></div>
+              <div class="field"><label>Rubro</label><input type="text" placeholder="Ej: Tecnología"></div>
+            </div>
+            <div class="field"><label>Redes sociales / sitio web</label><input type="text"
+                placeholder="Instagram, Facebook o sitio web"></div>
+          </div>
+          <div class="field"><label>Fecha de entrada</label><input type="date" id="dateInput"></div>
+          <div class="inline-fields">
+            <div class="field"><label>Hora inicio</label><input type="time" value="09:00"></div>
+            <div class="field"><label>Hora final</label><input type="time" value="13:00"></div>
+          </div>
+          <div class="field"><label>Número de invitados</label>
+            <div class="counter"><button type="button" id="minusBtn">−</button><input type="number" id="peopleInput"
+                min="1" value="30"><button type="button" id="plusBtn">+</button></div>
+          </div>
+          <div class="field"><label>Selecciona un paquete</label>
+            <div class="option-list"><label class="option active"><input type="radio" name="package" value="base"
+                  checked>
+                <div><strong>Solo alquiler base</strong><small>Bs 500 por hora · Sin paquete</small></div>
+              </label><label class="option"><input type="radio" name="package" value="standard">
+                <div><strong>Paquete Evento Estándar</strong><small>Bs 1.000 · Incluye 30 personas</small></div>
+              </label><label class="option"><input type="radio" name="package" value="food">
+                <div><strong>Paquete con Alimentación</strong><small>Bs 2.500 · Incluye comida y 30 personas</small>
+                </div>
+              </label><label class="option"><input type="radio" name="package" value="corporate">
+                <div><strong>Paquete Corporativo</strong><small>Bs 3.200 · Incluye 50 personas</small></div>
+              </label></div>
+          </div>
+          <div class="field"><label>Servicios adicionales</label>
+            <div class="extra-list"><label class="extra" id="extraFood"><input type="checkbox" class="extraInput"
+                  value="50" data-type="person" data-name="Alimentación adicional">
+                <div><strong>Alimentación adicional</strong><small>Bs 50 por persona</small></div>
+              </label><label class="extra" id="extraSpecialMenu" style="display:none;"><input type="checkbox"
+                  class="extraInput" value="25" data-type="person" data-name="Menú especial">
+                <div><strong>Menú especial</strong><small>Bs 25 por persona · Para paquetes con comida</small></div>
+              </label><label class="extra"><input type="checkbox" class="extraInput" value="350" data-type="fixed"
+                  data-name="Decoración básica">
+                <div><strong>Decoración básica</strong><small>Bs 350 precio fijo</small></div>
+              </label><label class="extra"><input type="checkbox" class="extraInput" value="220" data-type="fixed"
+                  data-name="Equipamiento extra">
+                <div><strong>Equipamiento extra</strong><small>Bs 220 precio fijo</small></div>
+              </label></div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Resumen de reserva</div>
+            <div class="summary-row"><span>Paquete</span><strong id="summaryPackage">Solo alquiler base</strong></div>
+            <div class="summary-row"><span>Invitados</span><strong id="summaryPeople">30</strong></div>
+            <div class="summary-row"><span>Incluidos</span><strong id="summaryIncluded">No aplica</strong></div>
+            <div class="summary-row"><span>Personas extra</span><strong id="summaryExtraPeople">0</strong></div>
+            <div class="summary-row"><span>Servicios</span><strong id="summaryExtras">Bs 0</strong></div>
+          </div>
+          <div class="total"><span>Total calculado</span><strong id="summaryTotal">Bs 2.000</strong></div><button
+            type="button" class="primary-btn" id="reserveBtn">Reservar ahora</button>
+          <p class="side-note" id="sideNote">El total se calcula según paquete, invitados y servicios seleccionados.</p>
+          <div class="mini-actions"><button class="secondary-btn">♡ Favoritos</button><button
+              class="secondary-btn">Contactar</button></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+  <section class="host-band">
+    <div class="host-inner">
+      <div class="host-avatar"></div>
+      <div>
+        <h3>Juani Chávez</h3>
+        <p>Ver perfil del propietario</p><button>Contactar al propietario</button>
+      </div>
+    </div>
+  </section>
+  <section class="map-preview">
+    <div class="map-pin">📍 Salón de eventos Rodolfo<br><span style="color:var(--kumyy);">Bs 500/hora</span></div>
+  </section>
+  <section class="similar">
+    <h2 class="section-title"><span class="dot"></span>Listados similares</h2>
+    <div class="similar-grid">
+      <div class="similar-card">
+        <div class="similar-img"></div>
+        <div class="similar-content"><strong>Salón de eventos platino</strong><span>📍 Cochabamba</span></div>
+      </div>
+      <div class="similar-card">
+        <div class="similar-img"
+          style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80');">
+        </div>
+        <div class="similar-content"><strong>Mi casa</strong><span>📍 Santa Cruz</span></div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div><strong>Sobre Kumyy</strong>Kumyy es una plataforma para alquilar espacios, salones, alojamientos y ambientes
+        para eventos.</div>
+      <div><strong>Términos</strong>Políticas de reserva<br>Condiciones de alquiler<br>Reglas para anfitriones</div>
+      <div><strong>Centro de asistencia</strong>Ayuda<br>Contacto<br>Preguntas frecuentes</div>
+      <div><strong>Recursos</strong>Cómo tomar buenas fotos<br>Cómo publicar tu espacio<br>Recomendaciones</div>
+    </div>
+  </footer>
+  <script>
+    const packages = { base: { label: 'Solo alquiler base', price: 500, type: 'hour', included: 0, extraPersonPrice: 0, includesFood: false }, standard: { label: 'Paquete Evento Estándar', price: 1000, type: 'fixed', included: 30, extraPersonPrice: 30, includesFood: false }, food: { label: 'Paquete con Alimentación', price: 2500, type: 'fixed', included: 30, extraPersonPrice: 50, includesFood: true }, corporate: { label: 'Paquete Corporativo', price: 3200, type: 'fixed', included: 50, extraPersonPrice: 45, includesFood: false } }; const peopleInput = document.getElementById('peopleInput'), minusBtn = document.getElementById('minusBtn'), plusBtn = document.getElementById('plusBtn'), summaryPackage = document.getElementById('summaryPackage'), summaryPeople = document.getElementById('summaryPeople'), summaryIncluded = document.getElementById('summaryIncluded'), summaryExtraPeople = document.getElementById('summaryExtraPeople'), summaryExtras = document.getElementById('summaryExtras'), summaryTotal = document.getElementById('summaryTotal'), reserveBtn = document.getElementById('reserveBtn'), bookingStatus = document.getElementById('bookingStatus'), fexpoCheck = document.getElementById('fexpoCheck'), companyFields = document.getElementById('companyFields'), sideNote = document.getElementById('sideNote'), extraFood = document.getElementById('extraFood'), extraSpecialMenu = document.getElementById('extraSpecialMenu'); function formatBs(v) { return 'Bs ' + v.toLocaleString('es-BO') } function selectedPackageKey() { return document.querySelector("input[name='package']:checked").value } function calculate() { const people = Math.max(1, Number(peopleInput.value) || 1); peopleInput.value = people; const selected = packages[selectedPackageKey()]; const hours = 4; let packageTotal = selected.type === 'hour' ? selected.price * hours : selected.price; const extraPeople = selected.included > 0 ? Math.max(0, people - selected.included) : 0; const extraPeopleTotal = extraPeople * selected.extraPersonPrice; if (selected.includesFood) { extraFood.style.display = 'none'; extraSpecialMenu.style.display = 'flex'; extraFood.querySelector('input').checked = false } else { extraFood.style.display = 'flex'; extraSpecialMenu.style.display = 'none'; extraSpecialMenu.querySelector('input').checked = false } let extrasTotal = 0; document.querySelectorAll('.extraInput:checked').forEach(extra => { const price = Number(extra.value), type = extra.dataset.type; extrasTotal += type === 'person' ? price * people : price }); const total = packageTotal + extraPeopleTotal + extrasTotal; summaryPackage.textContent = selected.label; summaryPeople.textContent = people; summaryIncluded.textContent = selected.included ? selected.included + ' personas' : 'No aplica'; summaryExtraPeople.textContent = extraPeople ? extraPeople + ' x ' + formatBs(selected.extraPersonPrice) : '0'; summaryExtras.textContent = formatBs(extrasTotal); summaryTotal.textContent = formatBs(total); if (fexpoCheck.checked) { bookingStatus.textContent = 'Solicitud FEXPOCRUZ'; bookingStatus.style.background = '#eff6ff'; bookingStatus.style.color = '#1d4ed8'; reserveBtn.textContent = 'Solicitar reserva'; reserveBtn.classList.add('request'); sideNote.textContent = 'Esta solicitud quedará pendiente de revisión. No se realizará pago directo.'; companyFields.classList.add('active') } else { bookingStatus.textContent = 'Reserva normal'; bookingStatus.style.background = '#ecfdf3'; bookingStatus.style.color = '#15803d'; reserveBtn.textContent = 'Reservar ahora'; reserveBtn.classList.remove('request'); sideNote.textContent = 'El total se calcula según paquete, invitados y servicios seleccionados.'; companyFields.classList.remove('active') } } minusBtn.addEventListener('click', () => { peopleInput.value = Math.max(1, Number(peopleInput.value) - 1); calculate() }); plusBtn.addEventListener('click', () => { peopleInput.value = Number(peopleInput.value) + 1; calculate() }); peopleInput.addEventListener('input', calculate); document.querySelectorAll("input[name='package']").forEach(input => { input.addEventListener('change', () => { document.querySelectorAll('.option').forEach(o => o.classList.remove('active')); input.closest('.option').classList.add('active'); calculate() }) }); document.querySelectorAll('.extraInput').forEach(input => input.addEventListener('change', calculate)); fexpoCheck.addEventListener('change', calculate); document.querySelectorAll('.tab').forEach(button => { button.addEventListener('click', () => { const tab = button.dataset.tab; document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active')); button.classList.add('active'); document.getElementById(tab).classList.add('active') }) }); calculate();
+  </script>
+</body>
+
+</html>
