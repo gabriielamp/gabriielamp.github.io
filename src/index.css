@@ -1,9 +1,8 @@
+@import "vanilla-infinite-marquee/css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "vanilla-infinite-marquee/infinite-marquee.css";
-
 
 @font-face {
   font-family: "Feeling Passionate";
@@ -127,6 +126,13 @@ button:focus-visible {
 
 html {
   scroll-behavior: smooth; /* scroll suave a las secciones */
+  scroll-padding-top: 6.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Tip opcional: ajusta el rendering de texto */

@@ -26,9 +26,8 @@ export default function ScrollTopBtn() {
     visible && (
       <button
         onClick={scrollToTop}
-        className="
-        fixed z-[9999] left-6 p-3 bottom-[calc(16px+env(safe-area-inset-bottom))] sm:left-6 sm:bottom-6 m-4 sm:m-6
-          rounded-full bg-[#2262EA] text-white shadow-lg hover:bg-blue-700 transition duration-300"
+        aria-label="Volver al inicio"
+        className="fixed bottom-[calc(80px+env(safe-area-inset-bottom))] right-5 z-30 grid h-12 w-12 place-items-center rounded-full bg-brand-blue p-0 text-white shadow-lg transition duration-300 hover:bg-brand-blueDark hover:text-white sm:bottom-6 sm:left-6 sm:right-auto"
       >
         <FaArrowUp size={20} />
       </button>

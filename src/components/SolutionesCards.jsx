@@ -1,97 +1,50 @@
-// src/components/SolutionsGrid.jsx
-import React from "react";
+import { motion } from "framer-motion";
+import { servicesData } from "../constants/services";
 
-import webdesign from "../assets/images/servicios/webdesign.png";
-import landing from "../assets/images/servicios/landing.png";
-import ecommerce from "../assets/images/servicios/ecommerce.png";
-import mantenimiento from "../assets/images/servicios/mantenimiento.png";
-import booking from "../assets/images/servicios/booking.png";
-import website from "../assets/images/servicios/website.png";
-const items = [
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.16 } },
+};
 
-  {
-    title: "LANDING PAGE",
-    img: landing,
-    bullets: [
-      "Convierte ",
-      { b: "visitas en clientes" },
-      " con una página diseñada para ",
-      { b: "impactar y vender" },
-      " desde el ",
-      { b: "primer clic." },
-    ],
+const serviceVariants = {
+  hidden: { opacity: 0, y: 45 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
   },
-  {
-    title: "E-COMMERCE",
-    img: ecommerce,
-    bullets: [
-      "Vende ",
-      { b: "más y mejor" },
-      " con tu propia ",
-      { b: "tienda online" },
-      ", fácil de usar y lista para ",
-      { b: "cobrar en cualquier parte del mundo." },
-    ],
-  },
-  {
-    title: "BOOKING ONLINE",
-    img: booking,
-    bullets: [
-      "Gestiona tus ",
-      { b: "reservas y pagos" },
-      " de forma ",
-      { b: "automática y sencilla" },
-      ", ideal para ",
-      { b: "tours o experiencias." },
-    ],
-  },
-  {
-    title: "SITIO WEB CORPORATIVO",
-    img: website,
-    bullets: [
-      "Proyecta la ",
-      { b: "imagen profesional" },
-      " de tu empresa con un sitio ",
-      { b: "ágil, confiable" },
-      " y fácil de navegar.",
-    ],
-  },
-  {
-    title: "Soporte Técnico Web",
-    img: mantenimiento,
-    bullets: [
-      "Monitoreo, ",
-      { b: "actualizaciones y backups" },
-      " para que tu sitio esté ",
-      { b: "seguro y rápido" },
-      " 24/7.",
-    ],
-  },
-  {
-    title: "DISEÑO UX / UI",
-    img: webdesign,
-    bullets: [
-      "Dale a tu marca una ",
-      { b: "web única, optimizada" },
-      " y lista para ",
-      { b: "conquistar clientes" },
-      " en ",
-      { b: "cualquier dispositivo." },
-    ],
-  },
-];
+};
 
-function Boldy({ parts }) {
+const titleVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, y: 16, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+function RichText({ parts }) {
   return (
-    <p className="text-slate-600 leading-relaxed">
-      {parts.map((p, i) =>
-        typeof p === "string" ? (
-          <span key={i}>{p}</span>
+    <p className="leading-relaxed text-slate-600">
+      {parts.map((part, index) =>
+        typeof part === "string" ? (
+          <span key={index}>{part}</span>
         ) : (
-          <strong key={i} className="text-slate-900">
-            {p.b}
+          <strong key={index} className="font-semibold text-slate-900">
+            {part.b}
           </strong>
-        )
+        ),
       )}
     </p>
   );
@@ -99,73 +52,81 @@ function Boldy({ parts }) {
 
 export default function SolutionsGrid() {
   return (
-    <section id="soluciones" className="relative overflow-hidden">
-      {/* Fondo */}
-      <div className="absolute inset-0 bg-[#1E56F0]" aria-hidden />
-      {/* Patrón sutil */}
+    <section
+      id="soluciones"
+      aria-labelledby="soluciones-title"
+      className="relative isolate scroll-mt-24 bg-[#1E56F0]"
+    >
       <div
-        className="absolute inset-0 bg-[radial-gradient(transparent_1px,rgba(255,255,255,0.05)_1px)] [background-size:18px_18px]"
-        aria-hidden
-      />
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[inherit]"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(transparent_1px,rgba(255,255,255,0.05)_1px)] [background-size:18px_18px]" />
+        <div className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -right-20 top-1/2 h-80 w-80 rounded-full bg-[#7ea2ff]/20 blur-3xl" />
+        <div className="absolute -bottom-16 left-1/3 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+      </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 py-16">
-        {/* Encabezado */}
-        <div className="text-center text-white">
-          <div className="flex flex-col items-center">
-            <span className="inline-block text-sm tracking-[0.18em] opacity-90 font-figtree font-bold">
-              SERVICIOS
-            </span>
-            <div className="text-[#ffffff] px-6 py-2 font-passionate text-2xl md:text-4xl">
-              Soluciones para tu marca
-            </div>
-            <p className="font-poppins mt-4 max-w-2xl text-sm md:text-base opacity-90 hidden">
-              Soy apasionada por el arte en todas sus formas, encuentro inspiración en la creatividad y el diseño.
-              Amante del café, siempre acompañado de buenas ideas y código bien estructurado.
-            </p>
-          </div>
-        </div>
-
-        {/* Grid de cards (NO carrusel) */}
-        <div className="mt-10">
-          <div
-            className="
-              grid gap-6
-              grid-cols-1
-              md:grid-cols-2
-              lg:grid-cols-3
-            "
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-12 sm:px-10 lg:grid-cols-[minmax(260px,0.8fr)_minmax(0,1.7fr)] lg:items-start lg:gap-14 lg:px-12 lg:py-16 xl:gap-20 xl:px-10">
+        <motion.div
+          className="text-white lg:sticky lg:top-28 lg:py-8"
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+        >
+          <span className="inline-block font-figtree text-xs font-bold tracking-[0.2em] sm:text-sm">
+            SERVICIOS
+          </span>
+          <h2
+            id="soluciones-title"
+            className="mt-3 max-w-md font-poppins text-4xl font-bold leading-[0.95] sm:text-5xl lg:text-5xl"
           >
-            {items.map((card, idx) => (
-              <article
-                key={idx}
-                className="
-                  bg-white rounded-3xl shadow-xl p-6 md:p-8
-                  flex flex-col items-center text-center
-                  transition-transform duration-200 hover:-translate-y-1
-                  h-full
-                "
-                aria-label={card.title}
-              >
-                <h3 className="font-poppins uppercase font-bold text-black text-lg md:text-xl tracking-wide">
-                  {card.title}
-                </h3>
+            Soluciones para tu marca
+          </h2>
+          <p className="mt-7 max-w-md font-poppins text-sm leading-relaxed text-white/90 sm:text-base">
+            <strong className="font-semibold text-white">
+              Especialista en WordPress, diseño responsivo y experiencia de usuario,
+            </strong>{" "}
+            con un enfoque en soluciones innovadoras para potenciar la presencia digital de empresas.
+          </p>
+        </motion.div>
 
-                <img
-                  src={card.img}
-                  alt={card.title}
-                  className="w-48 h-48 mt-2 object-contain"
+        <motion.div
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.08 }}
+        >
+          {servicesData.map((service) => (
+            <motion.article
+              key={service.id}
+              variants={serviceVariants}
+              whileHover={{ y: -8, scale: 1.015 }}
+              transition={{ type: "spring", stiffness: 220, damping: 18 }}
+              className="relative flex min-h-[340px] flex-col overflow-hidden rounded-[24px] border border-white/60 bg-white/95 p-6 shadow-[0_12px_30px_rgba(10,31,93,0.16)] backdrop-blur-sm sm:p-7"
+              aria-label={service.title}
+            >
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-transparent opacity-70" />
+              <div className="relative z-10 flex h-full flex-col">
+                <motion.img
+                  variants={imageVariants}
+                  src={service.img}
+                  alt=""
+                  className="mx-auto h-32 w-32 object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.10)] sm:h-36 sm:w-36"
                   loading="lazy"
                 />
-
-                <div className="mt-5 font-poppins text-base">
-                  <Boldy parts={card.bullets} />
+                <h3 className="mt-5 font-poppins text-base font-bold uppercase leading-snug tracking-wide text-[#1E56F0] sm:text-lg">
+                  {service.title}
+                </h3>
+                <div className="mt-3 font-poppins text-sm sm:text-[15px]">
+                  <RichText parts={service.bullets} />
                 </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Nota: si quieres EXACTO 3 columnas x 2 filas, agrega 2 ítems más al array `items`. */}
-        </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

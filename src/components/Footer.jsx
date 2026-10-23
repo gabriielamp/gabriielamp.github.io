@@ -1,83 +1,117 @@
-// src/components/Footer.jsx
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
-    FaFacebookF,
-    FaInstagram,
-    FaLinkedinIn,
-    FaGithub,
-    FaEnvelope,
-    FaDribbble
+  FaDribbble,
+  FaEnvelope,
+  FaInstagram,
+  FaLinkedinIn,
 } from "react-icons/fa";
 import Logo from "../assets/images/icons/Logo-full.svg";
 
+const footerLinks = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#acerca", label: "Acerca de mí" },
+  { href: "#soluciones", label: "Servicios" },
+  { href: "#trabajos", label: "Proyectos" },
+  { href: "#testimonios", label: "Testimonios" },
+  { href: "#preguntas", label: "FAQ" },
+];
+
+const socialLinkClass =
+  "group flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition-all duration-300 hover:-translate-y-1 hover:border-[#2262EA] hover:bg-[#2262EA] hover:text-white hover:shadow-[0_10px_24px_rgba(34,98,234,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7EA2FF] focus-visible:ring-offset-2 focus-visible:ring-offset-black active:translate-y-0";
+const socialIconClass = "h-4 w-4 transition-transform duration-300 group-hover:scale-110";
+
 export default function Footer() {
-    return (
-        <footer className="bg-[#1E1E2F] text-white py-10 pt-16 pb-0 font-poppins">
-            <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-                {/* Columna 1 */}
-                <div>
-                    <img src={Logo} alt="Logo" className="w-[80%] mb-4" />
-                    {/* <p className="text-gray-400 mt-3 text-sm leading-relaxed">
-                        Desarrolladora web especializada en crear experiencias digitales
-                        únicas que impulsan marcas y negocios.
-                    </p> */}
-                </div>
+  const footerRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.45, 1], [0, 0.35, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [96, 0]);
 
-                {/* Columna 2 */}
-                <div>
-                    <h3 className="text-lg font-semibold mb-3">Enlaces rápidos</h3>
-                    <ul className="space-y-2 text-gray-400 text-sm">
-                        <li>
-                            <a href="#inicio" className="text-gray-400  font-normal hover:text-amber-600 transition">Inicio</a>
-                        </li>
-                        <li>
-                            <a href="#about" className="text-gray-400  font-normal hover:text-amber-600 transition">Acerca de mí</a>
-                        </li>
-                        <li>
-                            <a href="#work" className="text-gray-400  font-normal hover:text-amber-600 transition">Trabajos</a>
-                        </li>
-                        <li>
-                            <a href="#solutions" className="text-gray-400  font-normal hover:text-amber-600 transition">Soluciones</a>
-                        </li>
-                        <li>
-                            <a href="#testimonials" className="text-gray-400  font-normal hover:text-amber-600 transition">Testimonios</a>
-                        </li>
-                        <li>
-                            <a href="#contact" className="text-gray-400  font-normal hover:text-amber-600 transition">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
+  return (
+    <footer
+      ref={footerRef}
+      id="contacto"
+      className="relative z-0 h-[100svh] min-h-[560px] bg-[#F0F3FF] font-poppins"
+      style={{ clipPath: "inset(0)" }}
+    >
+      <motion.div
+        className="fixed inset-x-0 bottom-0 flex h-[100svh] min-h-[560px] items-center rounded-t-[48px] bg-black px-6 py-8 text-white sm:rounded-t-[80px] md:px-12 md:py-12"
+        style={shouldReduceMotion ? undefined : { opacity, y }}
+      >
+        <div className="mx-auto flex w-full flex-col items-center text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#78A7FF]">Contacto</p>
+          <img
+            src={Logo}
+            alt="Logo Gabriela"
+            className="mb-6 w-[180px] sm:mb-8 sm:w-[220px]"
+            loading="lazy"
+          />
+          <h2 className="mt-3 max-w-2xl font-passionate text-3xl md:text-3xl">
+            Convirtamos tu idea en una experiencia digital
+          </h2>
+          <p className="mb-7 mt-4 max-w-xl text-sm leading-relaxed text-white/75 md:mb-10 md:text-base">
+            Cuéntame qué necesita tu marca y conversemos sobre el alcance,
+            objetivos y próximos pasos de tu proyecto web.
+          </p>
 
-                {/* Columna 3 */}
-                <div>
-                    <h3 className="text-lg font-semibold mb-3">Redes Sociales</h3>
-                    <div className="flex gap-4">
-                        {/* <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-3 text-white bg-[#2262EA] rounded-full hover:bg-blue-700 transition">
-                            <FaFacebookF />
-                        </a>
-                        <a href="https://github.com/gabriielamp" target="_blank" rel="noreferrer" className="p-3 text-white bg-[#2262EA] rounded-full hover:bg-gray-600 transition">
-                            <FaGithub />
-                        </a>
-                        */}
-                        <a href="https://www.linkedin.com/in/gabriela-moron4537/" target="_blank" rel="noreferrer" className="p-3 text-white bg-[#2262EA] hover:text-white rounded-full hover:bg-blue-500 transition">
-                            <FaLinkedinIn />
-                        </a>
-                        <a href="mailto:itsgabi.dev@gmail.com" className="p-3 text-white bg-[#2262EA] rounded-full hover:bg-red-500 hover:text-white transition">
-                            <FaEnvelope />
-                        </a>
-                        <a href="https://www.instagram.com/itsgabi.dev/" target="_blank" rel="noreferrer" className="p-3 text-white bg-[#2262EA] rounded-full hover:bg-pink-600 hover:text-white transition">
-                            <FaInstagram />
-                        </a>
-                        <a href="https://dribbble.com/Gmoron4537" target="_blank" rel="noreferrer" className="p-3 text-white bg-[#2262EA] rounded-full hover:bg-pink-500 hover:text-white transition">
-                            <FaDribbble />
-                        </a>
-                    </div>
-                </div>
-            </div>
+          <ul className="mb-7 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-white sm:text-base md:mb-10 md:gap-x-10">
+            {footerLinks.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} className="text-white transition hover:text-[#a1a1a1]">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-            {/* Línea inferior */}
-            <div className="mt-10 border-t border-gray-700 pt-6 pb-6 text-center text-gray-500 text-sm">
-                © {new Date().getFullYear()} Gabriela Morón Pereira · Todos los derechos reservados.
-            </div>
-        </footer>
-    );
+          <div className="mb-8 flex justify-center gap-4 md:mb-12">
+            <a
+              href="https://www.linkedin.com/in/gabriela-moron4537/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de Gabriela Morón en LinkedIn"
+              className={socialLinkClass}
+            >
+              <FaLinkedinIn className={socialIconClass} aria-hidden="true" />
+            </a>
+            <a
+              href="mailto:itsgabi.dev@gmail.com"
+              aria-label="Enviar un correo a Gabriela Morón"
+              className={socialLinkClass}
+            >
+              <FaEnvelope className={socialIconClass} aria-hidden="true" />
+            </a>
+            <a
+              href="https://www.instagram.com/itsgabi.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de Gabriela Morón en Instagram"
+              className={socialLinkClass}
+            >
+              <FaInstagram className={socialIconClass} aria-hidden="true" />
+            </a>
+            <a
+              href="https://dribbble.com/Gmoron4537"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de Gabriela Morón en Dribbble"
+              className={socialLinkClass}
+            >
+              <FaDribbble className={socialIconClass} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="w-full max-w-2xl border-t border-white/30 pt-5">
+            <p className="text-sm text-white/80">
+              © {new Date().getFullYear()} Derechos reservados | Diseño y Desarrollo por Gabriela Morón.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </footer>
+  );
 }

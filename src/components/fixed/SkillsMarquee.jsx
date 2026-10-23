@@ -1,68 +1,77 @@
-// src/components/SkillsMarquee.jsx
-import { useEffect, useRef } from "react";
-import InfiniteMarqueeLib from "vanilla-infinite-marquee";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
-import { LuAsterisk } from "react-icons/lu";
+const lines = [
+  { text: "DISEÑO WEB · UX / UI", reverse: false },
+  { text: "DESARROLLO · E-COMMERCE", reverse: true },
+];
 
-export default function SkillsMarquee({
-  items = [
-    "WORDPRESS",
-    "E-COMMERCE",
-    "HTML",
-    "CSS",
-    "JAVASCRIPT",
-    "REACT",
-    "PHP",
-    "UX/UI",
-  ],
-  speed = 30000,
-  duplicateCount = 4,
-  bgClass = "bg-[#1E56F0]",
-  heightClass = "h-[10vh]",
-}) {
-  const marqueeRef = useRef(null);
-
-  useEffect(() => {
-    if (!marqueeRef.current) return;
-
-    const marquee = new InfiniteMarqueeLib({
-      element: marqueeRef.current,
-      speed,
-      direction: "left",
-      smoothEdges: true,
-      duplicateCount,
-      pauseOnHover: true,
-      mobileSettings: {
-        direction: "left",
-        speed,
-      },
-    });
-
-    return () => {
-      if (marquee && typeof marquee.destroy === "function") marquee.destroy();
-    };
-  }, [speed, duplicateCount]);
+function ScrollTextLine({ text, reverse, progress, reduceMotion }) {
+  const forwardX = useTransform(progress, [0, 1], ["-5%", "-25%"]);
+  const reverseX = useTransform(progress, [0, 1], ["-25%", "-5%"]);
+  const x = reverse ? reverseX : forwardX;
 
   return (
-    <div className={`relative ${heightClass} overflow-hidden ${bgClass} flex items-center font-insaniburger`}>
-      {/* OJO: sin flex en el hijo, la librería maneja el layout */}
-      <div ref={marqueeRef} className="whitespace-nowrap w-full">
-        {items.map((txt, i) => (
-          <span key={i} className="inline-flex items-center gap-6 mx-8 leading-none align-middle">
-            <span className="text-6xl tracking-wide text-outline">{txt}</span>
-            <LuAsterisk className="text-white text-[48px] stroke-[1px] inline-block align-middle" />
+    <div
+      className="overflow-hidden py-1 sm:py-2"
+      role="text"
+      aria-label={text}
+    >
+      <motion.div
+        className="flex w-max items-center whitespace-nowrap font-insaniburger text-[clamp(2.5rem,5vw,5rem)] uppercase leading-[0.86] tracking-wide will-change-transform"
+        style={reduceMotion ? undefined : { x }}
+        aria-hidden="true"
+      >
+        {Array.from({ length: 10 }, (_, index) => (
+          <span
+            key={`${text}-${index}`}
+            className={
+              index % 2 === 0
+                ? "mx-[0.12em] text-white"
+                : "scroll-text-outline mx-[0.12em]"
+            }
+          >
+            {text}
           </span>
         ))}
-      </div>
-
-      {/* utilitarios locales */}
-      <style>{`
-        .text-outline {
-          color: transparent;
-          -webkit-text-stroke: 1px #fff;
-          text-stroke: 1px #fff;
-        }
-      `}</style>
+      </motion.div>
     </div>
+  );
+}
+
+export default function SkillsMarquee() {
+  const sectionRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  return (
+    <section
+      ref={sectionRef}
+      aria-labelledby="scroll-skills-title"
+      className="relative overflow-hidden bg-[#1E56F0] py-12 sm:py-14 lg:py-16"
+    >
+      <h2 id="scroll-skills-title" className="sr-only">
+        Servicios de diseño y desarrollo web
+      </h2>
+
+      <div className="flex flex-col gap-2 sm:gap-3">
+        {lines.map((line) => (
+          <ScrollTextLine
+            key={line.text}
+            {...line}
+            progress={scrollYProgress}
+            reduceMotion={shouldReduceMotion}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

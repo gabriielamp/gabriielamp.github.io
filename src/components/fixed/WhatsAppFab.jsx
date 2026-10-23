@@ -1,13 +1,13 @@
 // src/components/WhatsAppFab.jsx
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppFab({
-  phone = "59175660196",                 // <-- cámbialo por tu número
+  phone = "59174579402",                 // <-- cámbialo por tu número
   message = "Hola, me gustaría más información 👋",
   position = "br",                       // br | bl | tr | tl
   showAfter = 0,                         // px de scroll antes de mostrar (0 = siempre visible)
-  utm = "utm_source=portfolio&utm_medium=whatsapp_fab"
+  utm = "utm_source=portfolio&utm_medium=whatsapp_fab",
 }) {
   const [visible, setVisible] = useState(showAfter === 0);
 
@@ -20,15 +20,14 @@ export default function WhatsAppFab({
   }, [showAfter]);
 
   const posClass = useMemo(() => {
-    const base = "fixed z-[9999]";
-    const inset = "m-4 sm:m-6";
+    const base = "fixed z-30";
     const map = {
-      br: `${base} right-4 bottom-[calc(16px+env(safe-area-inset-bottom))] sm:right-6 sm:bottom-6`,
-      bl: `${base} left-4 bottom-[calc(16px+env(safe-area-inset-bottom))] sm:left-6 sm:bottom-6`,
+      br: `${base} right-5 bottom-[calc(20px+env(safe-area-inset-bottom))] sm:right-6 sm:bottom-6`,
+      bl: `${base} left-5 bottom-[calc(20px+env(safe-area-inset-bottom))] sm:left-6 sm:bottom-6`,
       tr: `${base} right-4 top-4 sm:right-6 sm:top-6`,
       tl: `${base} left-4 top-4 sm:left-6 sm:top-6`,
     };
-    return `${map[position] || map.br} ${inset}`;
+    return map[position] || map.br;
   }, [position]);
 
   const href = useMemo(() => {
@@ -57,20 +56,18 @@ export default function WhatsAppFab({
         <div className="p-3">
           <FaWhatsapp className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
-        {/* Etiqueta que se expande al hover (desktop) */}
-        <div className="hidden sm:block max-w-0 group-hover:max-w-[220px] transition-[max-width] duration-300">
-          <span className="pr-4 text-white font-medium whitespace-nowrap select-none">
+        {/* Etiqueta que se expande al hover y al entrar en la seccion portfolio */}
+        <div
+          className="hidden max-w-0 overflow-hidden transition-[max-width] duration-500 ease-out group-hover:max-w-[220px] lg:block"
+        >
+          <span
+            className="block translate-x-2 scale-95 whitespace-nowrap pr-4 font-medium text-white opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100"
+          >
             ¡Escríbeme por WhatsApp!
           </span>
         </div>
       </div>
 
-      {/* Tooltip móvil (cuando no hay hover) */}
-      <span className="sm:hidden absolute -top-9 left-1/2 -translate-x-1/2 text-xs
-                       bg-gray-900 text-white px-2 py-1 rounded shadow pointer-events-none">
-        WhatsApp
-        <span className="absolute left-1/2 -bottom-1 h-2 w-2 -translate-x-1/2 rotate-45 bg-gray-900" />
-      </span>
     </a>
   );
 }

@@ -1,86 +1,56 @@
-// src/components/Testimonials.jsx
 import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, Linkedin } from "lucide-react";
-
-import img1 from "../assets/images/testimonios/nata.jpg";
-import img2 from "../assets/images/testimonios/ale.jpg";
-import img3 from "../assets/images/testimonios/monica.png";
-import img4 from "../assets/images/testimonios/ange.jpg";
-import img5 from "../assets/images/testimonios/alec.jpg";
-
-const testimonials = [
-  {
-    text:
-      "Trabajar con Gabriela fue una experiencia muy buena. Entendió rápido lo que queríamos, cumplió con los tiempos y nos explicó todo con mucha claridad. La recomiendo sin dudar.",
-    name: "Natalia Sanchez",
-    role: "Marketing Manager en Legacy",
-    img: img1,
-    linkedin: "https://www.linkedin.com/in/natalia-sanchez-1942a6231/",
-  },
-  {
-    text:
-      "Gabriela captó la idea desde el principio. Nos ayudó a mejorar varias cosas del proyecto y siempre estuvo pendiente de cada detalle. Muy comprometida con su trabajo.",
-    name: "Alejandro Barja",
-    role: "Gestor de proyectos en Syncra",
-    img: img2,
-    linkedin: "https://www.linkedin.com/in/alejandrobarja/",
-  },
-  {
-    text:
-      "Destaco su comunicación constante y su forma de trabajar: ordenada, clara y profesional. El resultado final superó lo que teníamos en mente.",
-    name: "Mónica Chávez",
-    role: "Building Digital Economies",
-    img: img3,
-    linkedin: "https://www.linkedin.com/in/monica-chavez-rivera/",
-  },
-  {
-    text:
-      "Gabriela transformó nuestras ideas en una web funcional y muy linda. Todo el proceso fue fácil gracias a su organización y su forma de explicar.",
-    name: "Angela Vega",
-    role: "Ejecutiva de ventas",
-    img: img4,
-    linkedin: "https://www.linkedin.com/in/angela-vega-319591201/",
-  },
-  {
-    text:
-      "Tiene un gran equilibrio entre lo técnico y lo visual. Se nota que le importa la experiencia del usuario y eso se ve en el resultado final.",
-    name: "Alex Mendizabal Alvarez",
-    role: "Gestor de Producto en AXENTIS",
-    img: img5,
-    linkedin: "https://www.linkedin.com/in/alex-sonny-mendizabal-alvarez-8b095797/",
-  },
-];
-
-
+import { testimonialsData } from "../constants/testimonials";
+import { titleVariants, carouselVariants } from "../constants/animations";
 
 function Card({ item }) {
   return (
-    <div className="p-6 md:p-7 bg-white rounded-2xl h-full">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 220, damping: 18 }}
+      className="h-full w-full overflow-hidden rounded-[26px] border border-white bg-white p-7 shadow-[0_10px_30px_rgba(34,98,234,0.07)] transition-shadow hover:shadow-[0_16px_36px_rgba(34,98,234,0.12)] md:min-h-[330px]"
+    >
       <div className="text-left">
-        <span className="text-6xl leading-none text-[#2262EA]">“</span>
-        <p className="text-gray-600 text-sm md:text-[15px] mt-0">{item.text}</p>
+        <span
+          className="block font-serif text-5xl font-bold leading-[0.75] text-[#9FC7FF]"
+          aria-hidden="true"
+        >
+          “
+        </span>
+        <p className="mt-4 text-sm font-medium leading-[1.65] text-[#2b2b2b] md:text-[15px]">
+          {item.text}
+        </p>
       </div>
-      <div className="flex items-center gap-3 mt-6">
-        <img src={item.img} alt={item.name} className="w-10 h-10 rounded-full" />
-        <div className="text-left">
-          <p className="font-semibold text-sm text-gray-700">{item.name}</p>
-          <p className="text-xs text-gray-500">{item.role}</p>
-          {item.linkedin && (
-            <a
-              href={item.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 mt-1 text-[#2262EA] text-xs font-medium hover:underline"
-            >
-              <Linkedin size={14} />
-              Ver perfil
-            </a>
-          )}
+
+      <div className="mt-6 flex items-center gap-3 border-t border-[#E1E8F5] pt-5">
+        <img
+          src={item.img}
+          alt={item.name}
+          loading="lazy"
+          className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-[#E1E8F5]"
+        />
+
+        <div className="min-w-0 flex-1 text-left">
+          <p className="text-sm font-semibold text-[#2b2b2b]">{item.name}</p>
+          <p className="mt-0.5 text-xs text-[#363636]">{item.role}</p>
         </div>
+
+        {item.linkedin && (
+          <a
+            href={item.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Ver el perfil de ${item.name} en LinkedIn`}
+            className="ml-auto inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F1F5FF] text-[#2262EA] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2262EA] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2262EA]/30"
+          >
+            <Linkedin className="h-4 w-4" aria-hidden="true" />
+          </a>
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -88,8 +58,16 @@ export default function Testimonials() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
 
-  const autoplay = Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true });
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" }, [autoplay]);
+  const autoplay = Autoplay({
+    delay: 5000,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+  });
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [autoplay],
+  );
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -103,31 +81,57 @@ export default function Testimonials() {
     onSelect();
   }, [emblaApi, onSelect]);
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback((i) => emblaApi && emblaApi.scrollTo(i), [emblaApi]);
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  );
+  const scrollTo = useCallback(
+    (index) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
 
   return (
-    <section id="testimonios" className="bg-[#F0F3FF] py-16">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 font-poppins">
-        {/* Título */}
-        <div className="flex flex-col text-center text-[#2262EA]">
-          <h3 className="uppercase text-[11px] md:text-xs font-semibold text-gray-600 tracking-widest">
+    <section
+      id="testimonios"
+      aria-labelledby="testimonios-title"
+      className="relative overflow-hidden rounded-t-[80px] bg-[#F0F3FF] py-12 lg:py-16"
+    >
+      <div className="relative z-10 mx-auto max-w-6xl px-6 font-poppins md:px-8">
+        <motion.div
+          className="flex flex-col text-center text-[#2262EA]"
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+        >
+          <span className="inline-block font-figtree text-sm font-bold uppercase tracking-[0.18em] text-gray-600">
             Testimonios
-          </h3>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 font-passionate">
-            ¿Qué opinan las personas <span className="text-[#000000]">de mi trabajito?</span>
+          </span>
+          <h2
+            id="testimonios-title"
+            className="mt-2 font-passionate text-2xl font-bold sm:text-3xl md:text-4xl"
+          >
+            Lo que opinan las personas sobre mi trabajo
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Carrusel Embla */}
-        <div className="relative mt-12">
+        <motion.div
+          className="relative mt-10"
+          variants={carouselVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4 md:-ml-4">
-              {testimonials.map((item, i) => (
+            <div className="-ml-4 flex py-3 md:-ml-4">
+              {testimonialsData.map((item) => (
                 <div
-                  key={i}
-                  className="pl-4 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 shrink-0"
+                  key={item.id}
+                  className="flex basis-full shrink-0 pl-4 md:basis-1/2 md:pl-4 lg:basis-1/3"
                 >
                   <Card item={item} />
                 </div>
@@ -135,24 +139,47 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Flechas */}
-          <div className="mt-6 flex items-center justify-end gap-4">
-            <button
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <motion.button
+              type="button"
               onClick={scrollPrev}
-              aria-label="Anterior"
-              className="p-3 bg-white shadow rounded-full hover:bg-gray-100 active:scale-95 transition"
+              aria-label="Testimonio anterior"
+              whileHover={{ y: -2, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white p-0 text-[#173A70] shadow-[0_8px_22px_rgba(34,98,234,0.08)] transition hover:bg-white hover:text-[#2262EA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2262EA]/30"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
-            </button>
-            <button
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            </motion.button>
+
+            <div className="flex items-center justify-center gap-2">
+              {scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => scrollTo(index)}
+                  aria-label={`Ir al testimonio ${index + 1}`}
+                  aria-current={index === selectedIndex ? "true" : undefined}
+                  className={`h-2 rounded-full p-0 transition-all duration-300 ${
+                    index === selectedIndex
+                      ? "w-6 bg-[#2262EA]"
+                      : "w-2 bg-[#CFE0F8] hover:bg-[#9FC7FF]"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <motion.button
+              type="button"
               onClick={scrollNext}
-              aria-label="Siguiente"
-              className="p-3 bg-white shadow rounded-full hover:bg-gray-100 active:scale-95 transition"
+              aria-label="Siguiente testimonio"
+              whileHover={{ y: -2, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white p-0 text-[#173A70] shadow-[0_8px_22px_rgba(34,98,234,0.08)] transition hover:bg-white hover:text-[#2262EA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2262EA]/30"
             >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
-            </button>
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
